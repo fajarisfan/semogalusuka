@@ -193,14 +193,14 @@
             }
         }
 
-       function startMabar() {
+      function startMabar() {
     alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
     
-    // Ini link buat nembak langsung ke aplikasi Roblox di HP atau PC
-    // Ganti PLACE_ID dengan ID game (Fish it) dan JOB_ID dengan ID Private Server lu
-    window.location.href = "roblox://https://www.roblox.com/share?code=bc1b536710a60d4ca1099a12b7cb8718&type=Server";
+    // GANTI KE ID FISH IT (121864768012064)
+    // gameInstanceId pake kode private server lu yang tadi
+    window.location.href = "roblox://placeID=121864768012064&gameInstanceId=bc1b536710a60d4ca1099a12b7cb8718";
     
-    // Backup: Kalau protokol di atas gagal, arahkan ke link share tadi setelah 2 detik
+    // Backup: Kalau protokol di atas gagal (misal di PC/Browser tertentu)
     setTimeout(function() {
         window.location.href = "https://www.roblox.com/share?code=bc1b536710a60d4ca1099a12b7cb8718&type=Server";
     }, 2000);
