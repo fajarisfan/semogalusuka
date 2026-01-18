@@ -196,14 +196,21 @@
       function startMabar() {
     alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
     
-    // GANTI KE ID FISH IT (121864768012064)
-    // gameInstanceId pake kode private server lu yang tadi
-    window.location.href = "roblox://placeID=121864768012064&gameInstanceId=bc1b536710a60d4ca1099a12b7cb8718";
+    const placeId = "121864768012064";
+    const serverCode = "c48c21d09b2e3543b9af194fc034dd1a";
     
-    // Backup: Kalau protokol di atas gagal (misal di PC/Browser tertentu)
+    // Coba protokol roblox:// dulu (untuk app)
+    window.location.href = `roblox://placeId=${placeId}&privateServerLinkCode=${serverCode}`;
+    
+    // Backup: Link web (browser)
     setTimeout(function() {
-        window.location.href = "https://www.roblox.com/share?code=4f14665023db4e45b775d145cc08fee9&type=Server";
+        window.location.href = `https://www.roblox.com/games/${placeId}?privateServerLinkCode=${serverCode}`;
     }, 2000);
+    
+    // Backup 2: Link join resmi
+    setTimeout(function() {
+        window.location.href = `https://www.roblox.com/games/start?placeId=${placeId}&launchData=${serverCode}`;
+    }, 4000);
 }
     </script>
 </body>
