@@ -11,6 +11,12 @@
             margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth;
         }
 
+        /* Overlay Start buat Musik karena kebijakan browser */
+        #overlay {
+            position: fixed; width: 100%; height: 100%; background: #0f172a;
+            display: flex; justify-content: center; align-items: center; z-index: 999;
+        }
+
         .progress-container { position: fixed; top: 0; z-index: 100; width: 100%; height: 5px; background: #1e293b; }
         .progress-bar { height: 5px; background: #38bdf8; width: 0%; }
 
@@ -56,6 +62,14 @@
     </style>
 </head>
 <body>
+
+    <div id="overlay">
+        <button onclick="startApp()" class="btn">KLIK DULU, QUEEN! 👑</button>
+    </div>
+
+    <audio id="myAudio" loop>
+        <source src="musik.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
 
@@ -126,12 +140,9 @@
         <div class="section">
             <div class="story-box">
                 <h2>Misi Penebusan Janji dari hati gua yang paling dalam 🎁</h2>
-                <p>Gue sadar, gue udah banyak janji ke lu tapi eksekusinya agak 'kentang'. Inget script ultah kemarin? Kuenya cuma <b>GIF</b> doang. Terus janji boneka, eh malah lu-nya nggak suka atau belum siap nerima barang dari gua?</p>
-                
+                <p>Gue sadar, gue udah banyak janji ke lu tapi eksekusinya agak 'becanda'. Inget script ultah kemarin? Kuenya cuma <b>GIF</b> doang. Terus janji boneka, eh malah lu-nya nggak suka atau belum siap nerima barang dari gua?</p>
                 <p class="highlight">"Bukannya gue boros ya Zah, tapi ada rezeki aja dari project kodingan gue kemarin. Jadi gue kepikiran buat kasih lu <b>Skin Rod Black Hole</b> atau <b>Bunga Abadi</b>-nya biar kita <b>SAMAAN</b> pas mancing nanti!"</p>
-                
                 <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gue mah! 🗿</p>
-
                 <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gue nggak mau janji gue cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gue dulu."</p>
             </div>
         </div>
@@ -140,18 +151,21 @@
             <h2>Hutang Lunas, Mabar Gas! ✅</h2>
             <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gue abang-abangan lu yang siap 24 jam buat dengerin lu (walaupun laptop udah almarhum semoga cuma mati suri aja sih mager bongkarnya :v).</p>
             <p class="highlight">Gue tunggu di private server. Jangan kelamaan ngilang, nanti Talon Kikir gue hanyut beneran nyariin lu!</p>
-            
             <button onclick="startMabar()" class="btn">KLAIM HADIAH & SAMAAN SAMA GUE! 🎣</button>
-            
-            <div class="footer-note">
-                Repository: semoga-lu-suka <br>
-                — TTD, Abang-abangan 24 Jam Lu wkwk.
-            </div>
+            <div class="footer-note">Repository: semoga-lu-suka <br> — TTD, Abang-abangan 24 Jam Lu wkwk.</div>
         </div>
 
     </div>
 
     <script>
+        // Start App: Hilangkan Overlay & Putar Musik
+        function startApp() {
+            document.getElementById('overlay').style.display = 'none';
+            var audio = document.getElementById('myAudio');
+            audio.play();
+            createDecor();
+        }
+
         window.onscroll = function() {
           var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
           var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -178,7 +192,6 @@
                 document.body.appendChild(span);
             }
         }
-        createDecor();
 
         function startMabar() {
             alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
