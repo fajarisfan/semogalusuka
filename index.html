@@ -14,6 +14,9 @@
         .progress-container { position: fixed; top: 0; z-index: 100; width: 100%; height: 5px; background: #1e293b; }
         .progress-bar { height: 5px; background: #38bdf8; width: 0%; }
 
+        .decor { position: fixed; font-size: 25px; opacity: 0.3; animation: float 6s infinite ease-in-out; z-index: -1; }
+        @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(20deg); } }
+
         .container { max-width: 650px; margin: auto; padding: 100px 20px; }
 
         .section { 
@@ -75,6 +78,24 @@
         </div>
 
         <div class="section">
+            <div class="story-box" style="border-color: #818cf8;">
+                <h2>Ratu Notif & Mentor Sabar 👑</h2>
+                <p>Gue bales pake script mulu ke lu di DM IG, apalagi kalo di WA lu Ratu kali Zah nomor gue juga pasti lu apal karna script gue selalu kasih nomor.</p>
+                <p>Tapi emang agak susah ya dapetin notif WA dari lu, tapi gue ga hopeless kaya lu Zah wkwkw. Nyindir dikit nggak apa-apa lah ya, nyindir tapi sebenernya cinta beneran tulus!</p>
+                <p class="highlight">"HP gue emang udah minta pensiun dengan cara halus gara-gara notif bajingan, tapi gue nggak bakal pernah pensiun buat nungguin lu! 🗿"</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Majikan Tragis, Kucing pun Teler 🐈‍⬛</h2>
+            <img src="kucing.jpg" alt="Kucing Teler">
+            <div class="story-box" style="border-color: #fcd34d;">
+                <p>Zah, lu liat kucing gue ini... Dia aja sampe teler dan pasrah liat majikannya seharian begadang cuma buat benerin script dan nungguin notif dari lu. 🗿</p>
+                <p class="highlight">"Saking panjang dan penuh dramanya kodingan ini, kucing gue pun ikut 'hopeless' liat perjuangan gue. Maaf ya Zah, semoga lu nggak ketiduran juga pas baca ini kayak kucing gue wkwk!"</p>
+            </div>
+        </div>
+
+        <div class="section">
             <h2>The Legendary 2016 🌸</h2>
             <img src="2016.jpg" alt="Zahyang 2016">
             <p>Gue liat story ini... Gila Zah, zaman sekolah lu santai banget ya muka dan gaya fotonya. Wibu tercantik angkatan 2016 emang damage-nya permanen!</p>
@@ -103,31 +124,34 @@
         </div>
 
         <div class="section">
-            <div class="story-box"
-                <h2>Misi Penebusan Janji dari hati gua yang paling dalam🎁</h2>
+            <div class="story-box">
+                <h2>Misi Penebusan Janji dari hati gua yang paling dalam 🎁</h2>
                 <p>Gue sadar, gue udah banyak janji ke lu tapi eksekusinya agak 'kentang'. Inget script ultah kemarin? Kuenya cuma <b>GIF</b> doang. Terus janji boneka, eh malah lu-nya nggak suka atau belum siap nerima barang dari gua?</p>
+                
+                <p class="highlight">"Bukannya gue boros ya Zah, tapi ada rezeki aja dari project kodingan gue kemarin. Jadi gue kepikiran buat kasih lu <b>Skin Rod Black Hole</b> atau <b>Bunga Abadi</b>-nya biar kita <b>SAMAAN</b> pas mancing nanti!"</p>
+                
+                <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gue mah! 🗿</p>
+
                 <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gue nggak mau janji gue cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gue dulu."</p>
-                <p>Kalo boneka lu nggak suka, kue GIF cuma bikin laper mata, nih ambil <b>Skin Rod Black Hole</b>-nya. Biar kita <b>SAMAAN</b> pas mancing nanti!</p>
             </div>
         </div>
 
         <div class="section">
             <h2>Hutang Lunas, Mabar Gas! ✅</h2>
-            <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gue abang-abangan lu yang siap 24 jam buat dengerin lu (walaupun laptop udah almarhum).</p>
+            <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gue abang-abangan lu yang siap 24 jam buat dengerin lu (walaupun laptop udah almarhum semoga cuma mati suri aja sih mager bongkarnya :v).</p>
             <p class="highlight">Gue tunggu di private server. Jangan kelamaan ngilang, nanti Talon Kikir gue hanyut beneran nyariin lu!</p>
             
             <button onclick="startMabar()" class="btn">KLAIM HADIAH & SAMAAN SAMA GUE! 🎣</button>
             
             <div class="footer-note">
                 Repository: semoga-lu-suka <br>
-                — Gua, Abang-abangan 24 Jam Lu wkwk.
+                — TTD, Abang-abangan 24 Jam Lu wkwk.
             </div>
         </div>
 
     </div>
 
     <script>
-        // Progress Bar
         window.onscroll = function() {
           var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
           var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
@@ -135,7 +159,6 @@
           document.getElementById("myBar").style.width = scrolled + "%";
         };
 
-        // Scroll Animation
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (entry.isIntersecting) { entry.target.classList.add('show'); }
@@ -143,10 +166,23 @@
         }, { threshold: 0.1 });
         document.querySelectorAll('.section').forEach((el) => observer.observe(el));
 
-        // Final Action
+        function createDecor() {
+            const icons = ['🌸', '🕳️', '✨', '🌹'];
+            for (let i = 0; i < 20; i++) {
+                let span = document.createElement('span');
+                span.innerText = icons[Math.floor(Math.random() * icons.length)];
+                span.className = 'decor';
+                span.style.left = Math.random() * 100 + 'vw';
+                span.style.top = Math.random() * 100 + 'vh';
+                span.style.animationDelay = Math.random() * 5 + 's';
+                document.body.appendChild(span);
+            }
+        }
+        createDecor();
+
         function startMabar() {
-            alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Skin Rod Black Hole siap diklaim. Jangan lupa ketawa ya Zah!");
-            window.location.href = "LINK_PRIVATE_SERVER_ROBLOX_LU";
+            alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
+            window.location.href = "https://www.roblox.com/share?code=bc1b536710a60d4ca1099a12b7cb8718&type=Server";
         }
     </script>
 </body>
