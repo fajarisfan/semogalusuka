@@ -193,10 +193,18 @@
             }
         }
 
-        function startMabar() {
-            alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
-            window.location.href = "https://www.roblox.com/share?code=bc1b536710a60d4ca1099a12b7cb8718&type=Server";
-        }
+       function startMabar() {
+    alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
+    
+    // Ini link buat nembak langsung ke aplikasi Roblox di HP atau PC
+    // Ganti PLACE_ID dengan ID game (Fisch) dan JOB_ID dengan ID Private Server lu
+    window.location.href = "roblox://placeID=16732694052&gameInstanceId=bc1b536710a60d4ca1099a12b7cb8718";
+    
+    // Backup: Kalau protokol di atas gagal, arahkan ke link share tadi setelah 2 detik
+    setTimeout(function() {
+        window.location.href = "https://www.roblox.com/share?code=bc1b536710a60d4ca1099a12b7cb8718&type=Server";
+    }, 2000);
+}
     </script>
 </body>
 </html>
