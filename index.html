@@ -193,25 +193,24 @@
             }
         }
 
-      function startMabar() {
-    alert("Misi Penebusan Janji Selesai! ✅\n\nStatus: Queen Ditemukan.\nCatatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha");
-    
-    const placeId = "121864768012064";
-    const serverCode = "5cb80a32071b3e49bea20f709e21c8e9";
-    
-    // Coba protokol roblox:// dulu (untuk app)
-    window.location.href = `roblox://placeId=${placeId}&privateServerLinkCode=${serverCode}`;
-    
-    // Backup: Link web (browser)
-    setTimeout(function() {
-        window.location.href = `https://www.roblox.com/games/${placeId}?privateServerLinkCode=${serverCode}`;
-    }, 2000);
-    
-    // Backup 2: Link join resmi
-    setTimeout(function() {
-        window.location.href = `https://www.roblox.com/games/start?placeId=${placeId}&launchData=${serverCode}`;
-    }, 4000);
+     function startMabar() {
+    alert(
+        "Misi Penebusan Janji Selesai! ✅\n\n" +
+        "Status: Queen Ditemukan.\n" +
+        "Catatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha"
+    );
+
+    // Direct ke Roblox Player (paling cepet kalau Roblox sudah ter-install)
+    window.location.href =
+        "roblox://experiences/start?placeId=121864768012064&gameInstanceId=bc1b536710a60d4ca1099a12b7cb8718";
+
+    // Backup PALING AMAN (browser & HP, auto buka Roblox)
+    setTimeout(function () {
+        window.location.href =
+            "https://www.roblox.com/share?code=5cb80a32071b3e49bea20f709e21c8e9&type=Server";
+    }, 1500);
 }
+
     </script>
 </body>
 </html>
