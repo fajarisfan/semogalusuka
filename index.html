@@ -193,22 +193,24 @@
             }
         }
 
-     function startMabar() {
+    function startMabar() {
     alert(
         "Misi Penebusan Janji Selesai! ✅\n\n" +
         "Status: Queen Ditemukan.\n" +
         "Catatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha"
     );
 
-    // Direct ke Roblox Player (paling cepet kalau Roblox sudah ter-install)
-    window.location.href =
-        "roblox://experiences/start?placeId=121864768012064&gameInstanceId=bc1b536710a60d4ca1099a12b7cb8718";
+    // Link VIP Server Lu (Ganti URL ini dengan Link VIP yang lu dapet dari web Roblox)
+    const linkVIP = "https://www.roblox.com/share?code=6ad3a5b31ef4be4bb90b5417065ae95d&type=Server";
 
-    // Backup PALING AMAN (browser & HP, auto buka Roblox)
+    // Coba buka lewat protokol aplikasi dulu (buat User HP/PC yang ada App-nya)
+    // Kita pake try-catch tipis-tipis atau langsung lempar ke URL
+    window.location.href = linkVIP;
+
+    // Jika dalam 2 detik gak pindah, kita paksa buka di tab baru sebagai backup
     setTimeout(function () {
-        window.location.href =
-            "https://www.roblox.com/share?code=5cb80a32071b3e49bea20f709e21c8e9&type=Server";
-    }, 1500);
+        window.open(linkVIP, '_blank');
+    }, 2000);
 }
 
     </script>
