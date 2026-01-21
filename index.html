@@ -9,7 +9,6 @@
         body { 
             background: #0f172a; color: #f8fafc; font-family: 'Quicksand', sans-serif;
             margin: 0; padding: 0; 
-            /* PERBAIKAN: Biar bisa scroll kalau konten kepanjangan di HP */
             overflow-x: hidden; 
             min-height: 100vh;
         }
@@ -17,13 +16,13 @@
         #overlay {
             position: fixed; width: 100%; height: 100%; background: #0f172a;
             display: flex; justify-content: center; align-items: center; z-index: 999;
+            flex-direction: column;
         }
 
         .decor { position: fixed; font-size: 25px; opacity: 0.3; animation: float 6s infinite ease-in-out; z-index: -1; }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(20deg); } }
 
         .container { 
-            /* PERBAIKAN: Pake min-height biar di HP nggak kepotong konten bawahnya */
             min-height: 100vh; 
             display: flex; justify-content: center; align-items: center; 
             padding: 20px; box-sizing: border-box; position: relative;
@@ -32,7 +31,6 @@
         .section { 
             display: none; text-align: center; max-width: 650px; width: 100%;
             animation: slideIn 0.5s ease-out;
-            /* PERBAIKAN: Tambahin padding bawah biar tombol nggak nempel bgt di layar HP */
             padding-bottom: 30px;
         }
         .section.active { display: block !important; }
@@ -45,7 +43,6 @@
         img { 
             width: 100%; 
             height: auto; 
-            /* PERBAIKAN: Max height gua sesuaikan biar pas di layar HP */
             max-height: 300px; 
             object-fit: contain; 
             border-radius: 25px; 
@@ -64,7 +61,6 @@
         
         .story-box {
             background: rgba(30, 41, 59, 0.7); 
-            /* PERBAIKAN: Padding gua kecilin dikit biar gak terlalu sempit di HP */
             padding: 25px; 
             border-radius: 30px;
             border: 1px solid rgba(56, 189, 248, 0.3); backdrop-filter: blur(10px);
@@ -84,29 +80,330 @@
             background: #000; color: #0f0; padding: 15px; border-radius: 10px; 
             font-family: 'Courier New', monospace; font-size: 0.9em; margin-top: 15px;
             border: 1px solid #0f0;
-            /* PERBAIKAN: Biar teks kodingan gak lari-lari di layar kecil */
             word-break: break-all;
         }
 
-        /* PERBAIKAN: Media Query buat layar HP biar font gak kegedean */
+        /* ========== GAME CONTAINER STYLES ========== */
+        #gameContainer {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            overflow: auto;
+            padding: 20px;
+        }
+
+        .game-box {
+            border: 3px solid #38bdf8;
+            background: rgba(30, 41, 59, 0.9);
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.3);
+        }
+
+        .game-title {
+            color: #38bdf8;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #38bdf8;
+            padding-bottom: 10px;
+        }
+
+        /* Game Tabs */
+        .game-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .game-tab {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .game-tab.active {
+            background: #38bdf8;
+            color: white;
+        }
+
+        .game-tab:hover {
+            transform: translateY(-3px);
+        }
+
+        /* Mini Game 1: Catch Fish */
+        .fish-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .fish-pond {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(180deg, #1e3a8a 0%, #38bdf8 100%);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #38bdf8;
+        }
+
+        .fish {
+            position: absolute;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            user-select: none;
+        }
+
+        .fish:hover {
+            transform: scale(1.1);
+        }
+
+        .fish-score {
+            font-size: 1.5rem;
+            color: #f472b6;
+            font-weight: bold;
+        }
+
+        .game-btn {
+            background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 700;
+            cursor: pointer;
+            margin: 10px;
+            transition: 0.3s;
+        }
+
+        .game-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.4);
+        }
+
+        /* Mini Game 2: Type Challenge */
+        .type-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .type-text {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 15px;
+            border: 2px solid #38bdf8;
+            min-height: 100px;
+            width: 100%;
+            font-size: 1.1rem;
+            line-height: 1.6;
+        }
+
+        .type-input {
+            width: 100%;
+            padding: 15px;
+            border-radius: 15px;
+            border: 2px solid #38bdf8;
+            background: rgba(30, 41, 59, 0.8);
+            color: white;
+            font-size: 1rem;
+            font-family: 'Quicksand', sans-serif;
+            resize: vertical;
+        }
+
+        .type-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            color: #38bdf8;
+            font-weight: 600;
+        }
+
+        /* Mini Game 3: Memory Cards */
+        .memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .memory-card {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transform-style: preserve-3d;
+            transition: transform 0.5s;
+        }
+
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+            background: #f472b6;
+        }
+
+        .memory-card.matched {
+            background: #10b981;
+            cursor: default;
+        }
+
+        /* Secret Button */
+        .secret-game-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(244, 114, 182, 0.8);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(244, 114, 182, 0.5);
+            transition: 0.3s;
+        }
+
+        .secret-game-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(244, 114, 182, 0.7);
+        }
+
+        .footer-note {
+            margin-top: 30px;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid #38bdf8;
+            padding-top: 20px;
+        }
+
         @media (max-width: 480px) {
             h2 { font-size: 1.5em; }
             p { font-size: 1em; }
             .btn-nav { padding: 12px 25px; font-size: 1em; }
             .story-box { padding: 15px; }
+            .fish-pond { width: 250px; height: 150px; }
+            .memory-card { width: 60px; height: 60px; }
         }
     </style>
 </head>
 <body>
 
     <div id="overlay">
-        <button onclick="startApp()" class="btn-nav">KLIK DULU, QUEEN! 👑</button>
+        <h2 style="color: #38bdf8; margin-bottom: 30px;">Halo Zah! 👑</h2>
+        <p style="text-align: center; max-width: 500px; margin-bottom: 30px;">
+            Ada cerita panjang nih buat lu...<br>
+            Plus ada game kecil-kecilan biar ga bosen bacanya wkwk! 🎮
+        </p>
+        <button onclick="startApp()" class="btn-nav">BACA CERITA & MAIN GAME! 👑</button>
     </div>
 
     <audio id="myAudio" loop><source src="musik.mp3" type="audio/mpeg"></audio>
 
+    <!-- Secret Game Button -->
+    <button class="secret-game-btn" onclick="openGame()" title="Main Game Kalo Bosen Bacanya">🎮</button>
+
+    <!-- Game Container -->
+    <div id="gameContainer">
+        <div class="game-box">
+            <div class="game-title">MINI GAMES BUAT ZAH! 🎮</div>
+            
+            <div class="game-tabs">
+                <button class="game-tab active" onclick="switchGame(1)">🎣 CATCH FISH</button>
+                <button class="game-tab" onclick="switchGame(2)">⌨️ TYPE CHALLENGE</button>
+                <button class="game-tab" onclick="switchGame(3)">🧠 MEMORY CARD</button>
+            </div>
+            
+            <!-- Game 1: Catch Fish -->
+            <div id="game1" class="game-content">
+                <div class="fish-game">
+                    <div class="fish-pond" id="fishPond">
+                        <!-- Fish will appear here -->
+                    </div>
+                    <div class="fish-score">Score: <span id="fishScore">0</span></div>
+                    <div>Klik ikan yang muncul! Semakin cepat, semakin banyak poin!</div>
+                    <div>
+                        <button class="game-btn" onclick="startFishGame()">START</button>
+                        <button class="game-btn" onclick="resetFishGame()">RESET</button>
+                    </div>
+                    <div style="color: #94a3b8; font-size: 0.9rem; margin-top: 10px;">
+                        High Score: <span id="fishHighScore">0</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 2: Type Challenge -->
+            <div id="game2" class="game-content" style="display: none;">
+                <div class="type-game">
+                    <div class="type-text" id="typeText">
+                        Zah, gua bikin ini karena gua suka banget liat lu senyum. 
+                        Semoga lu selalu happy ya! 🎣💖
+                    </div>
+                    <textarea class="type-input" id="typeInput" rows="3" 
+                        placeholder="Ketik ulang teks di atas dengan cepat..."></textarea>
+                    <div class="type-stats">
+                        <div>Waktu: <span id="typeTime">0</span>s</div>
+                        <div>Accuracy: <span id="typeAccuracy">100</span>%</div>
+                        <div>Kata: <span id="typeWords">0</span></div>
+                    </div>
+                    <div>
+                        <button class="game-btn" onclick="startTypeGame()">START</button>
+                        <button class="game-btn" onclick="resetTypeGame()">RESET</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 3: Memory Card -->
+            <div id="game3" class="game-content" style="display: none;">
+                <div class="type-game">
+                    <div style="margin-bottom: 15px;">Temukan pasangan yang sama!</div>
+                    <div class="memory-game" id="memoryGrid">
+                        <!-- Cards will be generated here -->
+                    </div>
+                    <div style="margin: 15px 0; color: #38bdf8; font-weight: bold;">
+                        Moves: <span id="memoryMoves">0</span> | Matches: <span id="memoryMatches">0</span>/8
+                    </div>
+                    <div>
+                        <button class="game-btn" onclick="startMemoryGame()">START</button>
+                        <button class="game-btn" onclick="resetMemoryGame()">RESET</button>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="game-btn" onclick="closeGame()" 
+                style="background: linear-gradient(135deg, #38bdf8 0%, #1e3a8a 100%); margin-top: 20px;">
+                KEMBALI KE CERITA 📖
+            </button>
+        </div>
+    </div>
+
     <div class="container">
         
+        <!-- SECTIONS YANG SAMA PERSIS DARI SEBELUMNYA -->
         <div class="section active" id="s1">
             <h2>Korban Ujan 🌧️</h2>
             <div class="story-box">
@@ -216,13 +513,40 @@
 
     <script>
         let currentSlide = 1;
+        let gameActive = false;
+        let currentGame = 1;
 
+        // ========== GAME VARIABLES ==========
+        // Fish Game
+        let fishScore = 0;
+        let fishHighScore = localStorage.getItem('fishHighScore') || 0;
+        let fishInterval;
+        
+        // Type Game
+        let typeStartTime = 0;
+        let typeTimer = null;
+        let typeActive = false;
+        
+        // Memory Game
+        let memoryCards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        let memoryMoves = 0;
+
+        // ========== MAIN FUNCTIONS ==========
         function startApp() {
             document.getElementById('overlay').style.display = 'none';
-            // Biar scroll body aktif lagi setelah overlay ilang
             document.body.style.overflow = "auto";
-            try { document.getElementById('myAudio').play(); } catch(e) {}
+            try { 
+                const audio = document.getElementById('myAudio');
+                audio.play().catch(e => console.log("Audio autoplay blocked:", e));
+            } catch(e) {
+                console.log("Audio error:", e);
+            }
             createDecor();
+            
+            // Initialize games
+            updateFishDisplay();
         }
 
         function nextSlide(n) {
@@ -231,7 +555,6 @@
             if(next) {
                 next.classList.add('active');
                 currentSlide = n;
-                // Setiap pindah slide, otomatis scroll ke paling atas biar gak bingung di HP
                 window.scrollTo(0,0);
             }
         }
@@ -253,6 +576,301 @@
             alert("Misi Penebusan Janji Selesai! ✅\nStatus: Queen Ditemukan.");
             window.location.href = "https://www.roblox.com/share?code=f0f4bcb80ae4e84b8f1fda58ffd0123d&type=Server";
         }
+
+        // ========== GAME FUNCTIONS ==========
+        function openGame() {
+            document.getElementById('gameContainer').style.display = 'flex';
+            gameActive = true;
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeGame() {
+            document.getElementById('gameContainer').style.display = 'none';
+            gameActive = false;
+            document.body.style.overflow = "auto";
+        }
+
+        function switchGame(gameNumber) {
+            currentGame = gameNumber;
+            
+            // Update tabs
+            document.querySelectorAll('.game-tab').forEach((tab, index) => {
+                if (index + 1 === gameNumber) {
+                    tab.classList.add('active');
+                } else {
+                    tab.classList.remove('active');
+                }
+            });
+            
+            // Update game content
+            document.querySelectorAll('.game-content').forEach((content, index) => {
+                if (index + 1 === gameNumber) {
+                    content.style.display = 'block';
+                } else {
+                    content.style.display = 'none';
+                }
+            });
+            
+            // Initialize the selected game
+            if (gameNumber === 1) {
+                startFishGame();
+            } else if (gameNumber === 2) {
+                resetTypeGame();
+            } else if (gameNumber === 3) {
+                startMemoryGame();
+            }
+        }
+
+        // ========== FISH GAME ==========
+        function startFishGame() {
+            clearInterval(fishInterval);
+            document.getElementById('fishPond').innerHTML = '';
+            fishScore = 0;
+            updateFishDisplay();
+            
+            fishInterval = setInterval(() => {
+                spawnFish();
+            }, 1000);
+        }
+
+        function spawnFish() {
+            const pond = document.getElementById('fishPond');
+            const fishEmojis = ['🐟', '🐠', '🐡', '🦈', '🐙', '🦑', '🎣'];
+            const fish = document.createElement('div');
+            
+            const emoji = fishEmojis[Math.floor(Math.random() * fishEmojis.length)];
+            fish.innerText = emoji;
+            fish.className = 'fish';
+            
+            const size = Math.random() * 40 + 30;
+            fish.style.fontSize = size + 'px';
+            
+            const x = Math.random() * (300 - size);
+            const y = Math.random() * (200 - size);
+            fish.style.left = x + 'px';
+            fish.style.top = y + 'px';
+            
+            // Points based on fish type
+            let points = 10;
+            if (emoji === '🦈') points = 30;
+            if (emoji === '🎣') points = 50;
+            
+            fish.onclick = function() {
+                fishScore += points;
+                updateFishDisplay();
+                
+                // Animation
+                fish.style.transform = 'scale(1.5) rotate(20deg)';
+                fish.style.opacity = '0';
+                
+                setTimeout(() => {
+                    if (fish.parentNode) {
+                        fish.parentNode.removeChild(fish);
+                    }
+                }, 300);
+                
+                // Update high score
+                if (fishScore > fishHighScore) {
+                    fishHighScore = fishScore;
+                    localStorage.setItem('fishHighScore', fishHighScore);
+                    document.getElementById('fishHighScore').textContent = fishHighScore;
+                }
+            };
+            
+            pond.appendChild(fish);
+            
+            // Remove fish after 3 seconds
+            setTimeout(() => {
+                if (fish.parentNode) {
+                    fish.style.opacity = '0';
+                    setTimeout(() => {
+                        if (fish.parentNode) {
+                            fish.parentNode.removeChild(fish);
+                        }
+                    }, 500);
+                }
+            }, 3000);
+        }
+
+        function resetFishGame() {
+            clearInterval(fishInterval);
+            fishScore = 0;
+            updateFishDisplay();
+            document.getElementById('fishPond').innerHTML = '';
+        }
+
+        function updateFishDisplay() {
+            document.getElementById('fishScore').textContent = fishScore;
+            document.getElementById('fishHighScore').textContent = fishHighScore;
+        }
+
+        // ========== TYPE GAME ==========
+        const typeTexts = [
+            "Zah, gua suka banget liat lu senyum. Semoga lu selalu happy ya! 🎣💖",
+            "Gua janji bakal selalu nemenin lu main game, kapanpun lu mau! 🎮",
+            "Mancing bareng lu itu moment paling seru buat gua! 🐟✨",
+            "Jangan pernah berubah ya Zah, lu perfect kayak sekarang! 👑",
+            "Gua tunggu terus notif dari lu, itu yang bikin hari gua cerah! 🌸"
+        ];
+
+        function startTypeGame() {
+            if (typeActive) return;
+            
+            typeActive = true;
+            typeStartTime = Date.now();
+            document.getElementById('typeInput').value = '';
+            document.getElementById('typeInput').focus();
+            
+            // Random text
+            const randomText = typeTexts[Math.floor(Math.random() * typeTexts.length)];
+            document.getElementById('typeText').textContent = randomText;
+            
+            clearInterval(typeTimer);
+            typeTimer = setInterval(updateTypeStats, 100);
+        }
+
+        function updateTypeStats() {
+            if (!typeActive) return;
+            
+            const timeElapsed = Math.floor((Date.now() - typeStartTime) / 1000);
+            const prompt = document.getElementById('typeText').textContent;
+            const input = document.getElementById('typeInput').value;
+            
+            // Calculate words
+            const words = input.split(' ').filter(w => w.length > 0).length;
+            
+            // Calculate accuracy
+            let correctChars = 0;
+            const minLength = Math.min(prompt.length, input.length);
+            for (let i = 0; i < minLength; i++) {
+                if (prompt[i] === input[i]) correctChars++;
+            }
+            const accuracy = minLength > 0 ? Math.round((correctChars / minLength) * 100) : 100;
+            
+            document.getElementById('typeTime').textContent = timeElapsed;
+            document.getElementById('typeAccuracy').textContent = accuracy;
+            document.getElementById('typeWords').textContent = words;
+            
+            // Check if completed
+            if (input === prompt) {
+                typeActive = false;
+                clearInterval(typeTimer);
+                alert(`SELESAI! Waktu: ${timeElapsed}s | Accuracy: ${accuracy}%`);
+            }
+        }
+
+        function resetTypeGame() {
+            typeActive = false;
+            clearInterval(typeTimer);
+            document.getElementById('typeInput').value = '';
+            document.getElementById('typeTime').textContent = '0';
+            document.getElementById('typeAccuracy').textContent = '100';
+            document.getElementById('typeWords').textContent = '0';
+        }
+
+        // ========== MEMORY GAME ==========
+        function startMemoryGame() {
+            const emojiPairs = ['🎣', '🐟', '🐠', '🦈', '🌸', '✨', '🎮', '👑'];
+            let cards = [...emojiPairs, ...emojiPairs];
+            
+            // Shuffle
+            cards.sort(() => Math.random() - 0.5);
+            
+            memoryCards = cards;
+            flippedCards = [];
+            matchedPairs = 0;
+            memoryMoves = 0;
+            
+            const grid = document.getElementById('memoryGrid');
+            grid.innerHTML = '';
+            
+            cards.forEach((emoji, index) => {
+                const card = document.createElement('div');
+                card.className = 'memory-card';
+                card.dataset.index = index;
+                card.dataset.emoji = emoji;
+                
+                card.innerHTML = `<span style="opacity:0">${emoji}</span>`;
+                
+                card.onclick = () => flipCard(card);
+                grid.appendChild(card);
+            });
+            
+            updateMemoryDisplay();
+        }
+
+        function flipCard(card) {
+            if (flippedCards.length >= 2 || 
+                card.classList.contains('flipped') || 
+                card.classList.contains('matched')) {
+                return;
+            }
+            
+            card.classList.add('flipped');
+            card.innerHTML = card.dataset.emoji;
+            flippedCards.push(card);
+            
+            if (flippedCards.length === 2) {
+                memoryMoves++;
+                updateMemoryDisplay();
+                
+                const card1 = flippedCards[0];
+                const card2 = flippedCards[1];
+                
+                if (card1.dataset.emoji === card2.dataset.emoji) {
+                    // Match found
+                    setTimeout(() => {
+                        card1.classList.add('matched');
+                        card2.classList.add('matched');
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        flippedCards = [];
+                        matchedPairs++;
+                        updateMemoryDisplay();
+                        
+                        if (matchedPairs === 8) {
+                            setTimeout(() => {
+                                alert(`MENANG! ${memoryMoves} moves! 🎉`);
+                            }, 300);
+                        }
+                    }, 500);
+                } else {
+                    // No match
+                    setTimeout(() => {
+                        card1.classList.remove('flipped');
+                        card2.classList.remove('flipped');
+                        card1.innerHTML = `<span style="opacity:0">${card1.dataset.emoji}</span>`;
+                        card2.innerHTML = `<span style="opacity:0">${card2.dataset.emoji}</span>`;
+                        flippedCards = [];
+                    }, 1000);
+                }
+            }
+        }
+
+        function resetMemoryGame() {
+            startMemoryGame();
+        }
+
+        function updateMemoryDisplay() {
+            const movesElement = document.getElementById('memoryMoves');
+            const matchesElement = document.getElementById('memoryMatches');
+            
+            if (movesElement) movesElement.textContent = memoryMoves;
+            if (matchesElement) matchesElement.textContent = matchedPairs;
+        }
+
+        // Initialize games on load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFishDisplay();
+            startMemoryGame();
+            
+            // Set high score display
+            const savedHighScore = localStorage.getItem('fishHighScore');
+            if (savedHighScore) {
+                fishHighScore = parseInt(savedHighScore);
+                document.getElementById('fishHighScore').textContent = fishHighScore;
+            }
+        });
     </script>
 </body>
 </html>
