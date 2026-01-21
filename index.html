@@ -105,7 +105,7 @@
             background: rgba(30, 41, 59, 0.9);
             padding: 25px;
             width: 90%;
-            max-width: 500px;
+            max-width: 600px;
             border-radius: 25px;
             text-align: center;
             box-shadow: 0 20px 50px rgba(56, 189, 248, 0.3);
@@ -123,7 +123,8 @@
         .game-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
+            flex-wrap: wrap;
+            gap: 8px;
             margin-bottom: 20px;
         }
 
@@ -131,10 +132,12 @@
             background: rgba(56, 189, 248, 0.2);
             color: #38bdf8;
             border: 2px solid #38bdf8;
-            padding: 10px 20px;
+            padding: 8px 15px;
             border-radius: 50px;
             cursor: pointer;
             transition: all 0.3s;
+            font-size: 0.9rem;
+            white-space: nowrap;
         }
 
         .game-tab.active {
@@ -186,12 +189,13 @@
             background: linear-gradient(135deg, #f472b6 0%, #ec4899 100%);
             color: white;
             border: none;
-            padding: 12px 30px;
+            padding: 10px 25px;
             border-radius: 50px;
             font-weight: 700;
             cursor: pointer;
-            margin: 10px;
+            margin: 8px;
             transition: 0.3s;
+            font-size: 0.9rem;
         }
 
         .game-btn:hover {
@@ -209,25 +213,26 @@
 
         .type-text {
             background: rgba(0, 0, 0, 0.3);
-            padding: 20px;
+            padding: 15px;
             border-radius: 15px;
             border: 2px solid #38bdf8;
             min-height: 100px;
             width: 100%;
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.6;
+            color: #f8fafc;
         }
 
         .type-input {
             width: 100%;
-            padding: 15px;
+            padding: 12px;
             border-radius: 15px;
             border: 2px solid #38bdf8;
             background: rgba(30, 41, 59, 0.8);
             color: white;
-            font-size: 1rem;
+            font-size: 0.95rem;
             font-family: 'Quicksand', sans-serif;
-            resize: vertical;
+            resize: none;
         }
 
         .type-stats {
@@ -236,25 +241,27 @@
             width: 100%;
             color: #38bdf8;
             font-weight: 600;
+            font-size: 0.9rem;
         }
 
         /* Mini Game 3: Memory Cards */
         .memory-game {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            gap: 8px;
             margin: 20px 0;
+            justify-content: center;
         }
 
         .memory-card {
-            width: 70px;
-            height: 70px;
+            width: 65px;
+            height: 65px;
             background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
             border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             cursor: pointer;
             transform-style: preserve-3d;
             transition: transform 0.5s;
@@ -268,6 +275,115 @@
         .memory-card.matched {
             background: #10b981;
             cursor: default;
+        }
+
+        /* Mini Game 4: TAMAGOTCHI */
+        .tamagotchi-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .tamagotchi-screen {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #38bdf8;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .tamagotchi-pet {
+            font-size: 4rem;
+            transition: all 0.5s;
+            margin-bottom: 10px;
+        }
+
+        .tamagotchi-message {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            text-align: center;
+            color: #f472b6;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tamagotchi-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 8px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .tamagotchi-stat {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #38bdf8;
+            padding: 8px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+        }
+
+        .tamagotchi-bar {
+            height: 8px;
+            background: #003300;
+            margin-top: 5px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .tamagotchi-fill {
+            height: 100%;
+            background: #0f0;
+            width: 100%;
+            transition: width 0.5s;
+            border-radius: 4px;
+        }
+
+        .tamagotchi-controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            width: 100%;
+        }
+
+        .tamagotchi-btn {
+            background: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
+            border: 1px solid #38bdf8;
+            padding: 8px 5px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .tamagotchi-btn:hover {
+            background: rgba(56, 189, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .tamagotchi-info {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-top: 10px;
+            color: #94a3b8;
+            font-size: 0.8rem;
         }
 
         /* Secret Button */
@@ -307,7 +423,12 @@
             .btn-nav { padding: 12px 25px; font-size: 1em; }
             .story-box { padding: 15px; }
             .fish-pond { width: 250px; height: 150px; }
-            .memory-card { width: 60px; height: 60px; }
+            .memory-card { width: 55px; height: 55px; font-size: 1.1rem; }
+            .game-tabs { gap: 5px; }
+            .game-tab { padding: 6px 12px; font-size: 0.8rem; }
+            .tamagotchi-screen { width: 180px; height: 180px; }
+            .tamagotchi-pet { font-size: 3.5rem; }
+            .game-box { padding: 15px; }
         }
     </style>
 </head>
@@ -336,14 +457,13 @@
                 <button class="game-tab active" onclick="switchGame(1)">🎣 CATCH FISH</button>
                 <button class="game-tab" onclick="switchGame(2)">⌨️ TYPE CHALLENGE</button>
                 <button class="game-tab" onclick="switchGame(3)">🧠 MEMORY CARD</button>
+                <button class="game-tab" onclick="switchGame(4)">🐣 TAMAGOTCHI</button>
             </div>
             
             <!-- Game 1: Catch Fish -->
             <div id="game1" class="game-content">
                 <div class="fish-game">
-                    <div class="fish-pond" id="fishPond">
-                        <!-- Fish will appear here -->
-                    </div>
+                    <div class="fish-pond" id="fishPond"></div>
                     <div class="fish-score">Score: <span id="fishScore">0</span></div>
                     <div>Klik ikan yang muncul! Semakin cepat, semakin banyak poin!</div>
                     <div>
@@ -360,10 +480,9 @@
             <div id="game2" class="game-content" style="display: none;">
                 <div class="type-game">
                     <div class="type-text" id="typeText">
-                        Zah, gua bikin ini karena gua suka banget liat lu senyum. 
-                        Semoga lu selalu happy ya! 🎣💖
+                        Loading challenge...
                     </div>
-                    <textarea class="type-input" id="typeInput" rows="3" 
+                    <textarea class="type-input" id="typeInput" rows="4" 
                         placeholder="Ketik ulang teks di atas dengan cepat..."></textarea>
                     <div class="type-stats">
                         <div>Waktu: <span id="typeTime">0</span>s</div>
@@ -372,7 +491,7 @@
                     </div>
                     <div>
                         <button class="game-btn" onclick="startTypeGame()">START</button>
-                        <button class="game-btn" onclick="resetTypeGame()">RESET</button>
+                        <button class="game-btn" onclick="resetTypeGame()">RESET TEXT</button>
                     </div>
                 </div>
             </div>
@@ -380,16 +499,90 @@
             <!-- Game 3: Memory Card -->
             <div id="game3" class="game-content" style="display: none;">
                 <div class="type-game">
-                    <div style="margin-bottom: 15px;">Temukan pasangan yang sama!</div>
-                    <div class="memory-game" id="memoryGrid">
-                        <!-- Cards will be generated here -->
+                    <div style="margin-bottom: 15px; color: #f472b6; font-weight: bold;">
+                        Temukan pasangan yang sama! 🎣
                     </div>
+                    <div class="memory-game" id="memoryGrid"></div>
                     <div style="margin: 15px 0; color: #38bdf8; font-weight: bold;">
                         Moves: <span id="memoryMoves">0</span> | Matches: <span id="memoryMatches">0</span>/8
                     </div>
                     <div>
                         <button class="game-btn" onclick="startMemoryGame()">START</button>
                         <button class="game-btn" onclick="resetMemoryGame()">RESET</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 4: Tamagotchi -->
+            <div id="game4" class="game-content" style="display: none;">
+                <div class="tamagotchi-game">
+                    <div class="tamagotchi-screen">
+                        <div class="tamagotchi-pet" id="tamagotchiPet">🐣</div>
+                        <div class="tamagotchi-message" id="tamagotchiMessage">Halo Zah!</div>
+                    </div>
+                    
+                    <div class="tamagotchi-stats">
+                        <div class="tamagotchi-stat">
+                            <div>HUNGER</div>
+                            <div class="tamagotchi-bar">
+                                <div class="tamagotchi-fill" id="hungerBar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="tamagotchi-stat">
+                            <div>HAPPINESS</div>
+                            <div class="tamagotchi-bar">
+                                <div class="tamagotchi-fill" id="happinessBar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="tamagotchi-stat">
+                            <div>ENERGY</div>
+                            <div class="tamagotchi-bar">
+                                <div class="tamagotchi-fill" id="energyBar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                        <div class="tamagotchi-stat">
+                            <div>HEALTH</div>
+                            <div class="tamagotchi-bar">
+                                <div class="tamagotchi-fill" id="healthBar" style="width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="tamagotchi-controls">
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('feed')">
+                            <span>🍎</span>
+                            <span>FEED</span>
+                        </button>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('play')">
+                            <span>🎮</span>
+                            <span>PLAY</span>
+                        </button>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('sleep')">
+                            <span>💤</span>
+                            <span>SLEEP</span>
+                        </button>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('clean')">
+                            <span>🛀</span>
+                            <span>CLEAN</span>
+                        </button>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('medicine')">
+                            <span>💊</span>
+                            <span>MEDICINE</span>
+                        </button>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('light')">
+                            <span>💡</span>
+                            <span>LIGHT</span>
+                        </button>
+                    </div>
+                    
+                    <div class="tamagotchi-info">
+                        <div>Age: <span id="tamagotchiAge">0</span> days</div>
+                        <div>Stage: <span id="tamagotchiStage">EGG</span></div>
+                        <div>Points: <span id="tamagotchiPoints">0</span></div>
+                    </div>
+                    
+                    <div>
+                        <button class="game-btn" onclick="resetTamagotchi()">RESET TAMAGOTCHI</button>
                     </div>
                 </div>
             </div>
@@ -436,7 +629,7 @@
             <h2>Majikan Tragis, Kucing pun Teler 🐈‍⬛</h2>
             <img src="kucing.jpg" alt="Kucing Teler">
             <div class="story-box" style="border-color: #fcd34d;">
-                <p>Zah, lu liat kucing gua ini namanya ciko... Dia aja sampe teler dan pasrah liat majikannya seharian begadang cuma buat benerin script dan nungguin notif dari lu. 🗿</p>
+                <p>Zah, lu liat kucing gua ini namanya ciko... Dia aja sampe teler dan pasrah liat majikannya seharian begadang cuma buat beringin script dan nungguin notif dari lu. 🗿</p>
                 <p class="highlight">"Saking panjang dan penuh dramanya kodingan ini, kucing gua pun ikut 'hopeless' liat perjuangan gua. Maaf ya Zah, semoga lu nggak ketiduran juga pas baca ini kayak kucing gua wkwk!"</p>
             </div>
             <button class="btn-nav" onclick="nextSlide(5)">The Legend.. ➔</button>
@@ -526,12 +719,61 @@
         let typeStartTime = 0;
         let typeTimer = null;
         let typeActive = false;
+        let currentTypeTextIndex = 0;
         
         // Memory Game
         let memoryCards = [];
         let flippedCards = [];
         let matchedPairs = 0;
         let memoryMoves = 0;
+        
+        // Tamagotchi Game
+        let tamagotchi = {
+            hunger: 100,
+            happiness: 100,
+            energy: 100,
+            health: 100,
+            age: 0,
+            stage: 'EGG',
+            points: 0,
+            lastUpdate: Date.now(),
+            isSleeping: false,
+            isSick: false,
+            evolutionPoints: 0
+        };
+        let tamagotchiInterval;
+        
+        const tamagotchiStages = {
+            EGG: { emoji: '🐣', next: 10 },
+            BABY: { emoji: '👶', next: 30 },
+            CHILD: { emoji: '🧒', next: 60 },
+            TEEN: { emoji: '👨‍🎓', next: 100 },
+            ADULT: { emoji: '👨', next: null }
+        };
+
+        // ========== TYPE CHALLENGE TEXTS ==========
+        const typeChallengeTexts = [
+            "Zah, gua suka banget liat lu senyum. Semoga lu selalu happy ya! 🎣💖",
+            "Gua janji bakal selalu nemenin lu main game, kapanpun lu mau! 🎮",
+            "Mancing bareng lu itu moment paling seru buat gua! 🐟✨",
+            "Jangan pernah berubah ya Zah, lu perfect kayak sekarang! 👑",
+            "Gua tunggu terus notif dari lu, itu yang bikin hari gua cerah! 🌸",
+            "Lu tuh kayak harta karun buat gua, lebih berharga dari Ruby Gemstone! 💎",
+            "Kalo lagi ujan inget ya, jangan keluar! Gua nggak mau lu sakit! ⛈️",
+            "Abang-abangan lu ini siap 24 jam buat dengerin curhatan lu! 🕛",
+            "Mabar ML kapan lagi? Gua udah siap tank buat lu! ⚔️",
+            "Skripsi laptop gua udah gugur, tapi cinta gua ke lu tetep hidup! 💻❤️",
+            "Jangan pernah hopeless ya Zah, gua selalu ada buat lu! 🌈",
+            "Lu itu queen gua, dan gua akan selalu jadi abang-abangan terbaik! 👑",
+            "Kucing gua aja teler liat gua nungguin lu, apalagi gua! 🐱",
+            "2016 sampai sekarang, senyum lu tetep yang paling cantik! 📸",
+            "Gua simpen semua chat kita, karena setiap kata dari lu berharga! 💬",
+            "Ares Rod gua udah gacor nih, tinggal nunggu lu aja! 🎣",
+            "Skin Black Hole atau Bunga Abadi? Mau yang mana? 🎁",
+            "Jaga kesehatan selalu ya Zah, vitamin jangan lupa! 💊",
+            "Private server Roblox kita nunggu banget nih! 🎮",
+            "Gua nggak akan pernah ghosting lu, promise! 👻❌"
+        ];
 
         // ========== MAIN FUNCTIONS ==========
         function startApp() {
@@ -547,6 +789,9 @@
             
             // Initialize games
             updateFishDisplay();
+            getRandomTypeText();
+            loadTamagotchi();
+            startTamagotchiTimer();
         }
 
         function nextSlide(n) {
@@ -615,9 +860,12 @@
             if (gameNumber === 1) {
                 startFishGame();
             } else if (gameNumber === 2) {
+                getRandomTypeText();
                 resetTypeGame();
             } else if (gameNumber === 3) {
                 startMemoryGame();
+            } else if (gameNumber === 4) {
+                updateTamagotchiDisplay();
             }
         }
 
@@ -705,13 +953,18 @@
         }
 
         // ========== TYPE GAME ==========
-        const typeTexts = [
-            "Zah, gua suka banget liat lu senyum. Semoga lu selalu happy ya! 🎣💖",
-            "Gua janji bakal selalu nemenin lu main game, kapanpun lu mau! 🎮",
-            "Mancing bareng lu itu moment paling seru buat gua! 🐟✨",
-            "Jangan pernah berubah ya Zah, lu perfect kayak sekarang! 👑",
-            "Gua tunggu terus notif dari lu, itu yang bikin hari gua cerah! 🌸"
-        ];
+        function getRandomTypeText() {
+            // Get random text that's different from current
+            let newIndex;
+            do {
+                newIndex = Math.floor(Math.random() * typeChallengeTexts.length);
+            } while (newIndex === currentTypeTextIndex && typeChallengeTexts.length > 1);
+            
+            currentTypeTextIndex = newIndex;
+            document.getElementById('typeText').textContent = typeChallengeTexts[currentTypeTextIndex];
+            
+            return typeChallengeTexts[currentTypeTextIndex];
+        }
 
         function startTypeGame() {
             if (typeActive) return;
@@ -721,9 +974,10 @@
             document.getElementById('typeInput').value = '';
             document.getElementById('typeInput').focus();
             
-            // Random text
-            const randomText = typeTexts[Math.floor(Math.random() * typeTexts.length)];
-            document.getElementById('typeText').textContent = randomText;
+            // Get new random text if not already set
+            if (!document.getElementById('typeText').textContent.includes('...')) {
+                getRandomTypeText();
+            }
             
             clearInterval(typeTimer);
             typeTimer = setInterval(updateTypeStats, 100);
@@ -755,7 +1009,33 @@
             if (input === prompt) {
                 typeActive = false;
                 clearInterval(typeTimer);
-                alert(`SELESAI! Waktu: ${timeElapsed}s | Accuracy: ${accuracy}%`);
+                
+                // Calculate WPM (Words Per Minute)
+                const minutes = timeElapsed / 60;
+                const wpm = minutes > 0 ? Math.round(words / minutes) : words * 60;
+                
+                // Show result with emoji based on performance
+                let emoji = '😊';
+                let message = 'Good job!';
+                
+                if (wpm > 60) {
+                    emoji = '🚀';
+                    message = 'Super fast!';
+                } else if (wpm > 40) {
+                    emoji = '👍';
+                    message = 'Nice speed!';
+                } else if (wpm < 20) {
+                    emoji = '🐢';
+                    message = 'Take your time!';
+                }
+                
+                alert(`${emoji} ${message}\nWaktu: ${timeElapsed}s\nAccuracy: ${accuracy}%\nSpeed: ${wpm} WPM`);
+                
+                // Auto get new text after 1 second
+                setTimeout(() => {
+                    getRandomTypeText();
+                    resetTypeGame();
+                }, 1000);
             }
         }
 
@@ -766,6 +1046,9 @@
             document.getElementById('typeTime').textContent = '0';
             document.getElementById('typeAccuracy').textContent = '100';
             document.getElementById('typeWords').textContent = '0';
+            
+            // Get new random text
+            getRandomTypeText();
         }
 
         // ========== MEMORY GAME ==========
@@ -830,7 +1113,12 @@
                         
                         if (matchedPairs === 8) {
                             setTimeout(() => {
-                                alert(`MENANG! ${memoryMoves} moves! 🎉`);
+                                // Calculate score based on moves
+                                let stars = '⭐⭐⭐';
+                                if (memoryMoves > 20) stars = '⭐⭐';
+                                if (memoryMoves > 30) stars = '⭐';
+                                
+                                alert(`🏆 MENANG! ${stars}\nMoves: ${memoryMoves}\nPerfect memory!`);
                             }, 300);
                         }
                     }, 500);
@@ -859,10 +1147,241 @@
             if (matchesElement) matchesElement.textContent = matchedPairs;
         }
 
+        // ========== TAMAGOTCHI GAME ==========
+        function loadTamagotchi() {
+            const saved = localStorage.getItem('tamagotchiZah');
+            if (saved) {
+                try {
+                    const savedData = JSON.parse(saved);
+                    // Only load if data is not too old (7 days max)
+                    const daysOld = (Date.now() - savedData.lastUpdate) / (1000 * 60 * 60 * 24);
+                    if (daysOld < 7) {
+                        tamagotchi = savedData;
+                        tamagotchi.lastUpdate = Date.now();
+                    }
+                } catch(e) {
+                    console.log("Error loading tamagotchi:", e);
+                }
+            }
+            updateTamagotchiDisplay();
+        }
+
+        function saveTamagotchi() {
+            tamagotchi.lastUpdate = Date.now();
+            localStorage.setItem('tamagotchiZah', JSON.stringify(tamagotchi));
+        }
+
+        function startTamagotchiTimer() {
+            clearInterval(tamagotchiInterval);
+            tamagotchiInterval = setInterval(updateTamagotchiStats, 3000); // Update every 3 seconds
+        }
+
+        function updateTamagotchiStats() {
+            const now = Date.now();
+            const secondsPassed = (now - tamagotchi.lastUpdate) / 1000;
+            
+            if (secondsPassed < 1) return;
+            
+            // Decrease stats over time (slower for better gameplay)
+            tamagotchi.hunger = Math.max(0, tamagotchi.hunger - (0.5 * secondsPassed));
+            tamagotchi.happiness = Math.max(0, tamagotchi.happiness - (0.3 * secondsPassed));
+            
+            if (!tamagotchi.isSleeping) {
+                tamagotchi.energy = Math.max(0, tamagotchi.energy - (0.2 * secondsPassed));
+            } else {
+                // Recover energy while sleeping
+                tamagotchi.energy = Math.min(100, tamagotchi.energy + (1 * secondsPassed));
+                if (tamagotchi.energy >= 100) {
+                    tamagotchi.isSleeping = false;
+                    showTamagotchiMessage("Woke up refreshed! 💫");
+                }
+            }
+            
+            // Health decreases if stats are too low
+            if (tamagotchi.hunger < 20 || tamagotchi.happiness < 20 || tamagotchi.energy < 20) {
+                tamagotchi.health = Math.max(0, tamagotchi.health - (0.3 * secondsPassed));
+                if (!tamagotchi.isSick && tamagotchi.health < 50) {
+                    tamagotchi.isSick = true;
+                    showTamagotchiMessage("I don't feel well... 🤒");
+                }
+            } else if (tamagotchi.health < 100) {
+                // Recover health slowly
+                tamagotchi.health = Math.min(100, tamagotchi.health + (0.1 * secondsPassed));
+            }
+            
+            // Age increases slowly
+            tamagotchi.age += secondsPassed / 3600; // Convert to hours
+            
+            // Check for evolution
+            checkTamagotchiEvolution();
+            
+            tamagotchi.lastUpdate = now;
+            updateTamagotchiDisplay();
+            saveTamagotchi();
+        }
+
+        function tamagotchiAction(action) {
+            let message = "";
+            
+            switch(action) {
+                case 'feed':
+                    if (tamagotchi.hunger >= 100) {
+                        showTamagotchiMessage("I'm full! 🤰");
+                        return;
+                    }
+                    tamagotchi.hunger = Math.min(100, tamagotchi.hunger + 25);
+                    tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 10);
+                    tamagotchi.points += 15;
+                    message = "Yummy! Thanks! 🍎";
+                    break;
+                    
+                case 'play':
+                    if (tamagotchi.energy < 15) {
+                        showTamagotchiMessage("Too tired to play... 😴");
+                        return;
+                    }
+                    tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 20);
+                    tamagotchi.energy = Math.max(0, tamagotchi.energy - 15);
+                    tamagotchi.points += 20;
+                    message = "That was fun! 🎮";
+                    break;
+                    
+                case 'sleep':
+                    tamagotchi.isSleeping = !tamagotchi.isSleeping;
+                    message = tamagotchi.isSleeping ? "Zzzz... 😴" : "I'm awake! 👋";
+                    break;
+                    
+                case 'clean':
+                    tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 15);
+                    tamagotchi.points += 10;
+                    message = "Clean and fresh! 🛀";
+                    break;
+                    
+                case 'medicine':
+                    if (!tamagotchi.isSick) {
+                        showTamagotchiMessage("I'm not sick! 😊");
+                        return;
+                    }
+                    tamagotchi.health = Math.min(100, tamagotchi.health + 40);
+                    tamagotchi.isSick = false;
+                    tamagotchi.points += 25;
+                    message = "Feeling better! 💊";
+                    break;
+                    
+                case 'light':
+                    // Toggle light effect
+                    const screen = document.querySelector('.tamagotchi-screen');
+                    screen.style.boxShadow = screen.style.boxShadow ? '' : '0 0 20px #ff0';
+                    message = "Light toggled! 💡";
+                    break;
+            }
+            
+            showTamagotchiMessage(message);
+            updateTamagotchiDisplay();
+            saveTamagotchi();
+        }
+
+        function checkTamagotchiEvolution() {
+            const currentStage = tamagotchiStages[tamagotchi.stage];
+            if (currentStage.next && tamagotchi.points >= currentStage.next) {
+                // Move to next stage
+                const stages = Object.keys(tamagotchiStages);
+                const currentIndex = stages.indexOf(tamagotchi.stage);
+                if (currentIndex < stages.length - 1) {
+                    tamagotchi.stage = stages[currentIndex + 1];
+                    showTamagotchiMessage(`Evolved to ${tamagotchi.stage}! 🎉`);
+                }
+            }
+        }
+
+        function showTamagotchiMessage(message) {
+            const msgElement = document.getElementById('tamagotchiMessage');
+            msgElement.textContent = message;
+            msgElement.style.opacity = 1;
+            
+            setTimeout(() => {
+                msgElement.style.opacity = 0.7;
+            }, 3000);
+        }
+
+        function updateTamagotchiDisplay() {
+            // Update bars
+            document.getElementById('hungerBar').style.width = tamagotchi.hunger + '%';
+            document.getElementById('happinessBar').style.width = tamagotchi.happiness + '%';
+            document.getElementById('energyBar').style.width = tamagotchi.energy + '%';
+            document.getElementById('healthBar').style.width = tamagotchi.health + '%';
+            
+            // Update stats
+            document.getElementById('tamagotchiAge').textContent = tamagotchi.age.toFixed(1);
+            document.getElementById('tamagotchiStage').textContent = tamagotchi.stage;
+            document.getElementById('tamagotchiPoints').textContent = Math.floor(tamagotchi.points);
+            
+            // Update pet appearance
+            const pet = document.getElementById('tamagotchiPet');
+            const stageData = tamagotchiStages[tamagotchi.stage];
+            pet.textContent = stageData.emoji;
+            
+            // Add effects based on status
+            if (tamagotchi.isSick) {
+                pet.style.color = '#ff0000';
+                pet.style.transform = 'scale(0.9)';
+            } else if (tamagotchi.isSleeping) {
+                pet.style.color = '#8888ff';
+                pet.style.transform = 'scale(0.8)';
+            } else if (tamagotchi.happiness > 80) {
+                pet.style.color = '#ffff00';
+                pet.style.transform = 'scale(1.1)';
+            } else {
+                pet.style.color = '#ffffff';
+                pet.style.transform = 'scale(1)';
+            }
+            
+            // Update bar colors based on value
+            updateBarColor('hungerBar', tamagotchi.hunger);
+            updateBarColor('happinessBar', tamagotchi.happiness);
+            updateBarColor('energyBar', tamagotchi.energy);
+            updateBarColor('healthBar', tamagotchi.health);
+        }
+
+        function updateBarColor(barId, value) {
+            const bar = document.getElementById(barId);
+            if (value > 70) {
+                bar.style.background = '#0f0';
+            } else if (value > 30) {
+                bar.style.background = '#ff0';
+            } else {
+                bar.style.background = '#f00';
+            }
+        }
+
+        function resetTamagotchi() {
+            if (confirm("Reset Tamagotchi? Semua progress akan hilang!")) {
+                tamagotchi = {
+                    hunger: 100,
+                    happiness: 100,
+                    energy: 100,
+                    health: 100,
+                    age: 0,
+                    stage: 'EGG',
+                    points: 0,
+                    lastUpdate: Date.now(),
+                    isSleeping: false,
+                    isSick: false,
+                    evolutionPoints: 0
+                };
+                updateTamagotchiDisplay();
+                saveTamagotchi();
+                showTamagotchiMessage("New Tamagotchi created! 🐣");
+            }
+        }
+
         // Initialize games on load
         document.addEventListener('DOMContentLoaded', function() {
             updateFishDisplay();
             startMemoryGame();
+            getRandomTypeText();
+            loadTamagotchi();
+            startTamagotchiTimer();
             
             // Set high score display
             const savedHighScore = localStorage.getItem('fishHighScore');
@@ -870,6 +1389,14 @@
                 fishHighScore = parseInt(savedHighScore);
                 document.getElementById('fishHighScore').textContent = fishHighScore;
             }
+            
+            // Add keyboard shortcut for games (Ctrl+G)
+            document.addEventListener('keydown', function(e) {
+                if (e.ctrlKey && e.key === 'g') {
+                    e.preventDefault();
+                    openGame();
+                }
+            });
         });
     </script>
 </body>
