@@ -277,7 +277,7 @@
             cursor: default;
         }
 
-        /* Mini Game 4: TAMAGOTCHI */
+        /* Mini Game 4: TAMAGOTCHI (Perempuan) */
         .tamagotchi-game {
             display: flex;
             flex-direction: column;
@@ -286,9 +286,9 @@
         }
 
         .tamagotchi-screen {
-            width: 200px;
-            height: 200px;
-            border: 3px solid #38bdf8;
+            width: 220px;
+            height: 220px;
+            border: 3px solid #f472b6;
             background: rgba(0, 0, 0, 0.3);
             border-radius: 20px;
             position: relative;
@@ -298,12 +298,14 @@
             justify-content: center;
             align-items: center;
             margin-bottom: 10px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
         }
 
         .tamagotchi-pet {
-            font-size: 4rem;
+            font-size: 5rem;
             transition: all 0.5s;
             margin-bottom: 10px;
+            filter: drop-shadow(0 0 10px rgba(244, 114, 182, 0.5));
         }
 
         .tamagotchi-message {
@@ -315,6 +317,9 @@
             color: #f472b6;
             font-size: 0.8rem;
             font-weight: 600;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px;
+            border-radius: 10px;
         }
 
         .tamagotchi-stats {
@@ -327,7 +332,7 @@
 
         .tamagotchi-stat {
             background: rgba(30, 41, 59, 0.8);
-            border: 1px solid #38bdf8;
+            border: 1px solid #f472b6;
             padding: 8px;
             border-radius: 10px;
             text-align: center;
@@ -336,7 +341,7 @@
 
         .tamagotchi-bar {
             height: 8px;
-            background: #003300;
+            background: #33001a;
             margin-top: 5px;
             border-radius: 4px;
             overflow: hidden;
@@ -344,7 +349,7 @@
 
         .tamagotchi-fill {
             height: 100%;
-            background: #0f0;
+            background: #f472b6;
             width: 100%;
             transition: width 0.5s;
             border-radius: 4px;
@@ -358,9 +363,9 @@
         }
 
         .tamagotchi-btn {
-            background: rgba(56, 189, 248, 0.2);
-            color: #38bdf8;
-            border: 1px solid #38bdf8;
+            background: rgba(244, 114, 182, 0.2);
+            color: #f472b6;
+            border: 1px solid #f472b6;
             padding: 8px 5px;
             border-radius: 10px;
             font-size: 0.8rem;
@@ -373,7 +378,7 @@
         }
 
         .tamagotchi-btn:hover {
-            background: rgba(56, 189, 248, 0.4);
+            background: rgba(244, 114, 182, 0.4);
             transform: translateY(-2px);
         }
 
@@ -384,6 +389,115 @@
             margin-top: 10px;
             color: #94a3b8;
             font-size: 0.8rem;
+        }
+
+        /* Mini Game 5: VIRTUAL DOLL (Boneka Virtual) */
+        .doll-game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .doll-screen {
+            width: 250px;
+            height: 250px;
+            border: 3px solid #818cf8;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+            cursor: pointer;
+        }
+
+        .doll-character {
+            font-size: 8rem;
+            transition: all 0.3s;
+            user-select: none;
+            filter: drop-shadow(0 0 15px rgba(129, 140, 248, 0.5));
+        }
+
+        .doll-character:hover {
+            transform: scale(1.05);
+        }
+
+        .doll-message {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            text-align: center;
+            color: #818cf8;
+            font-size: 0.9rem;
+            font-weight: 600;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 8px;
+            border-radius: 10px;
+        }
+
+        .doll-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        .doll-stat {
+            background: rgba(30, 41, 59, 0.8);
+            border: 1px solid #818cf8;
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        .doll-stat-value {
+            font-size: 1.2rem;
+            color: #818cf8;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .doll-controls {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .doll-btn {
+            background: rgba(129, 140, 248, 0.2);
+            color: #818cf8;
+            border: 1px solid #818cf8;
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 120px;
+            justify-content: center;
+        }
+
+        .doll-btn:hover {
+            background: rgba(129, 140, 248, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .doll-interactions {
+            margin-top: 15px;
+            color: #cbd5e1;
+            font-size: 0.8rem;
+            text-align: center;
         }
 
         /* Secret Button */
@@ -426,9 +540,11 @@
             .memory-card { width: 55px; height: 55px; font-size: 1.1rem; }
             .game-tabs { gap: 5px; }
             .game-tab { padding: 6px 12px; font-size: 0.8rem; }
-            .tamagotchi-screen { width: 180px; height: 180px; }
-            .tamagotchi-pet { font-size: 3.5rem; }
+            .tamagotchi-screen, .doll-screen { width: 200px; height: 200px; }
+            .tamagotchi-pet { font-size: 4rem; }
+            .doll-character { font-size: 6rem; }
             .game-box { padding: 15px; }
+            .doll-btn { min-width: 100px; padding: 8px 12px; }
         }
     </style>
 </head>
@@ -451,13 +567,14 @@
     <!-- Game Container -->
     <div id="gameContainer">
         <div class="game-box">
-            <div class="game-title">MINI GAMES BUAT ZAH! 🎮</div>
+            <div class="game-title">MINI GAMES BIAR LU GA GABUT ZAH! 🎮</div>
             
             <div class="game-tabs">
                 <button class="game-tab active" onclick="switchGame(1)">🎣 CATCH FISH</button>
                 <button class="game-tab" onclick="switchGame(2)">⌨️ TYPE CHALLENGE</button>
                 <button class="game-tab" onclick="switchGame(3)">🧠 MEMORY CARD</button>
-                <button class="game-tab" onclick="switchGame(4)">🐣 TAMAGOTCHI</button>
+                <button class="game-tab" onclick="switchGame(4)">🌸 TAMAGOTCHI</button>
+                <button class="game-tab" onclick="switchGame(5)">🧸 VIRTUAL DOLL</button>
             </div>
             
             <!-- Game 1: Catch Fish -->
@@ -513,35 +630,35 @@
                 </div>
             </div>
             
-            <!-- Game 4: Tamagotchi -->
+            <!-- Game 4: Tamagotchi (Perempuan) -->
             <div id="game4" class="game-content" style="display: none;">
                 <div class="tamagotchi-game">
                     <div class="tamagotchi-screen">
-                        <div class="tamagotchi-pet" id="tamagotchiPet">🐣</div>
+                        <div class="tamagotchi-pet" id="tamagotchiPet">🌸</div>
                         <div class="tamagotchi-message" id="tamagotchiMessage">Halo Zah!</div>
                     </div>
                     
                     <div class="tamagotchi-stats">
                         <div class="tamagotchi-stat">
-                            <div>HUNGER</div>
+                            <div>MAKAN</div>
                             <div class="tamagotchi-bar">
                                 <div class="tamagotchi-fill" id="hungerBar" style="width: 100%;"></div>
                             </div>
                         </div>
                         <div class="tamagotchi-stat">
-                            <div>HAPPINESS</div>
+                            <div>BAHAGIA</div>
                             <div class="tamagotchi-bar">
                                 <div class="tamagotchi-fill" id="happinessBar" style="width: 100%;"></div>
                             </div>
                         </div>
                         <div class="tamagotchi-stat">
-                            <div>ENERGY</div>
+                            <div>ENERGI</div>
                             <div class="tamagotchi-bar">
                                 <div class="tamagotchi-fill" id="energyBar" style="width: 100%;"></div>
                             </div>
                         </div>
                         <div class="tamagotchi-stat">
-                            <div>HEALTH</div>
+                            <div>KESEHATAN</div>
                             <div class="tamagotchi-bar">
                                 <div class="tamagotchi-fill" id="healthBar" style="width: 100%;"></div>
                             </div>
@@ -550,39 +667,98 @@
                     
                     <div class="tamagotchi-controls">
                         <button class="tamagotchi-btn" onclick="tamagotchiAction('feed')">
-                            <span>🍎</span>
-                            <span>FEED</span>
+                            <span>🍰</span>
+                            <span>MAKAN</span>
                         </button>
                         <button class="tamagotchi-btn" onclick="tamagotchiAction('play')">
                             <span>🎮</span>
-                            <span>PLAY</span>
+                            <span>MAIN</span>
                         </button>
                         <button class="tamagotchi-btn" onclick="tamagotchiAction('sleep')">
                             <span>💤</span>
-                            <span>SLEEP</span>
+                            <span>TIDUR</span>
                         </button>
                         <button class="tamagotchi-btn" onclick="tamagotchiAction('clean')">
-                            <span>🛀</span>
-                            <span>CLEAN</span>
+                            <span>🛁</span>
+                            <span>MANDI</span>
                         </button>
                         <button class="tamagotchi-btn" onclick="tamagotchiAction('medicine')">
-                            <span>💊</span>
-                            <span>MEDICINE</span>
+                            <span>💖</span>
+                            <span>OBAT</span>
                         </button>
-                        <button class="tamagotchi-btn" onclick="tamagotchiAction('light')">
-                            <span>💡</span>
-                            <span>LIGHT</span>
+                        <button class="tamagotchi-btn" onclick="tamagotchiAction('dress')">
+                            <span>👗</span>
+                            <span>PAKAIAN</span>
                         </button>
                     </div>
                     
                     <div class="tamagotchi-info">
-                        <div>Age: <span id="tamagotchiAge">0</span> days</div>
-                        <div>Stage: <span id="tamagotchiStage">EGG</span></div>
-                        <div>Points: <span id="tamagotchiPoints">0</span></div>
+                        <div>Usia: <span id="tamagotchiAge">0</span> hari</div>
+                        <div>Tahap: <span id="tamagotchiStage">BAYI</span></div>
+                        <div>Poin: <span id="tamagotchiPoints">0</span></div>
                     </div>
                     
                     <div>
-                        <button class="game-btn" onclick="resetTamagotchi()">RESET TAMAGOTCHI</button>
+                        <button class="game-btn" onclick="resetTamagotchi()" style="background: linear-gradient(135deg, #f472b6 0%, #db2777 100%);">
+                            RESET TAMAGOTCHI
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Game 5: Virtual Doll (Boneka Virtual) -->
+            <div id="game5" class="game-content" style="display: none;">
+                <div class="doll-game">
+                    <div class="doll-screen" id="dollScreen" onclick="hugDoll()">
+                        <div class="doll-character" id="dollCharacter">🧸</div>
+                        <div class="doll-message" id="dollMessage">Klik aku untuk dipeluk! 🥰</div>
+                    </div>
+                    
+                    <div class="doll-stats">
+                        <div class="doll-stat">
+                            <div>PELUKAN</div>
+                            <div class="doll-stat-value" id="hugCount">0</div>
+                        </div>
+                        <div class="doll-stat">
+                            <div>KASIH SAYANG</div>
+                            <div class="doll-stat-value" id="loveLevel">100%</div>
+                        </div>
+                        <div class="doll-stat">
+                            <div>MOOD</div>
+                            <div class="doll-stat-value" id="dollMood">😊</div>
+                        </div>
+                    </div>
+                    
+                    <div class="doll-controls">
+                        <button class="doll-btn" onclick="playWithDoll()">
+                            <span>🎮</span> MAIN BERSAMA
+                        </button>
+                        <button class="doll-btn" onclick="feedDoll()">
+                            <span>🍪</span> KASIH MAKAN
+                        </button>
+                        <button class="doll-btn" onclick="singToDoll()">
+                            <span>🎵</span> NYANYI LAGU
+                        </button>
+                        <button class="doll-btn" onclick="changeDollClothes()">
+                            <span>👕</span> GANTI BAJU
+                        </button>
+                        <button class="doll-btn" onclick="danceWithDoll()">
+                            <span>💃</span> AYO MENARI
+                        </button>
+                        <button class="doll-btn" onclick="tellStoryToDoll()">
+                            <span>📖</span> CERITA DONGENG
+                        </button>
+                    </div>
+                    
+                    <div class="doll-interactions">
+                        <div>Interaksi: <span id="interactionCount">0</span> kali</div>
+                        <div>Waktu bersama: <span id="timeTogether">0</span> menit</div>
+                    </div>
+                    
+                    <div>
+                        <button class="game-btn" onclick="resetDoll()" style="background: linear-gradient(135deg, #818cf8 0%, #4f46e5 100%);">
+                            RESET BONEKA
+                        </button>
                     </div>
                 </div>
             </div>
@@ -727,29 +903,44 @@
         let matchedPairs = 0;
         let memoryMoves = 0;
         
-        // Tamagotchi Game
+        // Tamagotchi Game (Perempuan)
         let tamagotchi = {
             hunger: 100,
             happiness: 100,
             energy: 100,
             health: 100,
             age: 0,
-            stage: 'EGG',
+            stage: 'BAYI',
             points: 0,
             lastUpdate: Date.now(),
             isSleeping: false,
             isSick: false,
-            evolutionPoints: 0
+            clothes: 'default'
         };
         let tamagotchiInterval;
         
         const tamagotchiStages = {
-            EGG: { emoji: '🐣', next: 10 },
-            BABY: { emoji: '👶', next: 30 },
-            CHILD: { emoji: '🧒', next: 60 },
-            TEEN: { emoji: '👨‍🎓', next: 100 },
-            ADULT: { emoji: '👨', next: null }
+            BAYI: { emoji: '🌸', next: 50 },
+            ANAK: { emoji: '👧', next: 150 },
+            REMAJA: { emoji: '👩‍🎓', next: 300 },
+            DEWASA: { emoji: '👩', next: null }
         };
+        
+        // Virtual Doll Game
+        let virtualDoll = {
+            hugCount: 0,
+            loveLevel: 100,
+            mood: 'happy',
+            clothes: 'default',
+            interactionCount: 0,
+            startTime: Date.now(),
+            isDancing: false,
+            isSinging: false
+        };
+        let dollMoods = ['😊', '🥰', '😄', '🤗', '😍', '😇', '🤩'];
+        let dollClothes = ['🧸', '🐻', '🐰', '🐱', '🦊', '🐶', '🐨'];
+        let currentClothesIndex = 0;
+        let dollInterval;
 
         // ========== TYPE CHALLENGE TEXTS ==========
         const typeChallengeTexts = [
@@ -792,6 +983,8 @@
             getRandomTypeText();
             loadTamagotchi();
             startTamagotchiTimer();
+            loadVirtualDoll();
+            startDollTimer();
         }
 
         function nextSlide(n) {
@@ -805,7 +998,7 @@
         }
 
         function createDecor() {
-            const icons = ['🌸', '🎣', '🐟', '✨', '🦈'];
+            const icons = ['🌸', '🎣', '🐟', '✨', '🦈', '🧸', '💖'];
             for (let i = 0; i < 20; i++) {
                 let span = document.createElement('span');
                 span.innerText = icons[Math.floor(Math.random() * icons.length)];
@@ -866,6 +1059,8 @@
                 startMemoryGame();
             } else if (gameNumber === 4) {
                 updateTamagotchiDisplay();
+            } else if (gameNumber === 5) {
+                updateDollDisplay();
             }
         }
 
@@ -954,7 +1149,6 @@
 
         // ========== TYPE GAME ==========
         function getRandomTypeText() {
-            // Get random text that's different from current
             let newIndex;
             do {
                 newIndex = Math.floor(Math.random() * typeChallengeTexts.length);
@@ -974,7 +1168,6 @@
             document.getElementById('typeInput').value = '';
             document.getElementById('typeInput').focus();
             
-            // Get new random text if not already set
             if (!document.getElementById('typeText').textContent.includes('...')) {
                 getRandomTypeText();
             }
@@ -990,10 +1183,8 @@
             const prompt = document.getElementById('typeText').textContent;
             const input = document.getElementById('typeInput').value;
             
-            // Calculate words
             const words = input.split(' ').filter(w => w.length > 0).length;
             
-            // Calculate accuracy
             let correctChars = 0;
             const minLength = Math.min(prompt.length, input.length);
             for (let i = 0; i < minLength; i++) {
@@ -1005,16 +1196,13 @@
             document.getElementById('typeAccuracy').textContent = accuracy;
             document.getElementById('typeWords').textContent = words;
             
-            // Check if completed
             if (input === prompt) {
                 typeActive = false;
                 clearInterval(typeTimer);
                 
-                // Calculate WPM (Words Per Minute)
                 const minutes = timeElapsed / 60;
                 const wpm = minutes > 0 ? Math.round(words / minutes) : words * 60;
                 
-                // Show result with emoji based on performance
                 let emoji = '😊';
                 let message = 'Good job!';
                 
@@ -1031,7 +1219,6 @@
                 
                 alert(`${emoji} ${message}\nWaktu: ${timeElapsed}s\nAccuracy: ${accuracy}%\nSpeed: ${wpm} WPM`);
                 
-                // Auto get new text after 1 second
                 setTimeout(() => {
                     getRandomTypeText();
                     resetTypeGame();
@@ -1047,7 +1234,6 @@
             document.getElementById('typeAccuracy').textContent = '100';
             document.getElementById('typeWords').textContent = '0';
             
-            // Get new random text
             getRandomTypeText();
         }
 
@@ -1056,7 +1242,6 @@
             const emojiPairs = ['🎣', '🐟', '🐠', '🦈', '🌸', '✨', '🎮', '👑'];
             let cards = [...emojiPairs, ...emojiPairs];
             
-            // Shuffle
             cards.sort(() => Math.random() - 0.5);
             
             memoryCards = cards;
@@ -1101,7 +1286,6 @@
                 const card2 = flippedCards[1];
                 
                 if (card1.dataset.emoji === card2.dataset.emoji) {
-                    // Match found
                     setTimeout(() => {
                         card1.classList.add('matched');
                         card2.classList.add('matched');
@@ -1113,7 +1297,6 @@
                         
                         if (matchedPairs === 8) {
                             setTimeout(() => {
-                                // Calculate score based on moves
                                 let stars = '⭐⭐⭐';
                                 if (memoryMoves > 20) stars = '⭐⭐';
                                 if (memoryMoves > 30) stars = '⭐';
@@ -1123,7 +1306,6 @@
                         }
                     }, 500);
                 } else {
-                    // No match
                     setTimeout(() => {
                         card1.classList.remove('flipped');
                         card2.classList.remove('flipped');
@@ -1147,13 +1329,12 @@
             if (matchesElement) matchesElement.textContent = matchedPairs;
         }
 
-        // ========== TAMAGOTCHI GAME ==========
+        // ========== TAMAGOTCHI GAME (PEREMPUAN) ==========
         function loadTamagotchi() {
-            const saved = localStorage.getItem('tamagotchiZah');
+            const saved = localStorage.getItem('tamagotchiZahGirl');
             if (saved) {
                 try {
                     const savedData = JSON.parse(saved);
-                    // Only load if data is not too old (7 days max)
                     const daysOld = (Date.now() - savedData.lastUpdate) / (1000 * 60 * 60 * 24);
                     if (daysOld < 7) {
                         tamagotchi = savedData;
@@ -1168,12 +1349,12 @@
 
         function saveTamagotchi() {
             tamagotchi.lastUpdate = Date.now();
-            localStorage.setItem('tamagotchiZah', JSON.stringify(tamagotchi));
+            localStorage.setItem('tamagotchiZahGirl', JSON.stringify(tamagotchi));
         }
 
         function startTamagotchiTimer() {
             clearInterval(tamagotchiInterval);
-            tamagotchiInterval = setInterval(updateTamagotchiStats, 3000); // Update every 3 seconds
+            tamagotchiInterval = setInterval(updateTamagotchiStats, 3000);
         }
 
         function updateTamagotchiStats() {
@@ -1182,37 +1363,31 @@
             
             if (secondsPassed < 1) return;
             
-            // Decrease stats over time (slower for better gameplay)
             tamagotchi.hunger = Math.max(0, tamagotchi.hunger - (0.5 * secondsPassed));
             tamagotchi.happiness = Math.max(0, tamagotchi.happiness - (0.3 * secondsPassed));
             
             if (!tamagotchi.isSleeping) {
                 tamagotchi.energy = Math.max(0, tamagotchi.energy - (0.2 * secondsPassed));
             } else {
-                // Recover energy while sleeping
                 tamagotchi.energy = Math.min(100, tamagotchi.energy + (1 * secondsPassed));
                 if (tamagotchi.energy >= 100) {
                     tamagotchi.isSleeping = false;
-                    showTamagotchiMessage("Woke up refreshed! 💫");
+                    showTamagotchiMessage("Bangun tidur segar! 💫");
                 }
             }
             
-            // Health decreases if stats are too low
             if (tamagotchi.hunger < 20 || tamagotchi.happiness < 20 || tamagotchi.energy < 20) {
                 tamagotchi.health = Math.max(0, tamagotchi.health - (0.3 * secondsPassed));
                 if (!tamagotchi.isSick && tamagotchi.health < 50) {
                     tamagotchi.isSick = true;
-                    showTamagotchiMessage("I don't feel well... 🤒");
+                    showTamagotchiMessage("Aku kurang sehat nih... 🤒");
                 }
             } else if (tamagotchi.health < 100) {
-                // Recover health slowly
                 tamagotchi.health = Math.min(100, tamagotchi.health + (0.1 * secondsPassed));
             }
             
-            // Age increases slowly
-            tamagotchi.age += secondsPassed / 3600; // Convert to hours
+            tamagotchi.age += secondsPassed / 3600;
             
-            // Check for evolution
             checkTamagotchiEvolution();
             
             tamagotchi.lastUpdate = now;
@@ -1226,53 +1401,55 @@
             switch(action) {
                 case 'feed':
                     if (tamagotchi.hunger >= 100) {
-                        showTamagotchiMessage("I'm full! 🤰");
+                        showTamagotchiMessage("Aku kenyang banget! 🤰");
                         return;
                     }
                     tamagotchi.hunger = Math.min(100, tamagotchi.hunger + 25);
                     tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 10);
                     tamagotchi.points += 15;
-                    message = "Yummy! Thanks! 🍎";
+                    message = "Makasih makannya! 🍰";
                     break;
                     
                 case 'play':
                     if (tamagotchi.energy < 15) {
-                        showTamagotchiMessage("Too tired to play... 😴");
+                        showTamagotchiMessage("Lelah nih, mau tidur dulu... 😴");
                         return;
                     }
                     tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 20);
                     tamagotchi.energy = Math.max(0, tamagotchi.energy - 15);
                     tamagotchi.points += 20;
-                    message = "That was fun! 🎮";
+                    message = "Asyik main bareng! 🎮";
                     break;
                     
                 case 'sleep':
                     tamagotchi.isSleeping = !tamagotchi.isSleeping;
-                    message = tamagotchi.isSleeping ? "Zzzz... 😴" : "I'm awake! 👋";
+                    message = tamagotchi.isSleeping ? "Zzzz... mimpi indah 😴" : "Hai, aku udah bangun! 👋";
                     break;
                     
                 case 'clean':
                     tamagotchi.happiness = Math.min(100, tamagotchi.happiness + 15);
                     tamagotchi.points += 10;
-                    message = "Clean and fresh! 🛀";
+                    message = "Wangi dan bersih! 🛁";
                     break;
                     
                 case 'medicine':
                     if (!tamagotchi.isSick) {
-                        showTamagotchiMessage("I'm not sick! 😊");
+                        showTamagotchiMessage("Aku sehat kok! 😊");
                         return;
                     }
                     tamagotchi.health = Math.min(100, tamagotchi.health + 40);
                     tamagotchi.isSick = false;
                     tamagotchi.points += 25;
-                    message = "Feeling better! 💊";
+                    message = "Sudah enakan, makasih! 💖";
                     break;
                     
-                case 'light':
-                    // Toggle light effect
-                    const screen = document.querySelector('.tamagotchi-screen');
-                    screen.style.boxShadow = screen.style.boxShadow ? '' : '0 0 20px #ff0';
-                    message = "Light toggled! 💡";
+                case 'dress':
+                    const clothes = ['default', 'dress', 'casual', 'party'];
+                    const currentIndex = clothes.indexOf(tamagotchi.clothes);
+                    const nextIndex = (currentIndex + 1) % clothes.length;
+                    tamagotchi.clothes = clothes[nextIndex];
+                    tamagotchi.happiness += 5;
+                    message = "Baju baruku cantik ya! 👗";
                     break;
             }
             
@@ -1284,12 +1461,11 @@
         function checkTamagotchiEvolution() {
             const currentStage = tamagotchiStages[tamagotchi.stage];
             if (currentStage.next && tamagotchi.points >= currentStage.next) {
-                // Move to next stage
                 const stages = Object.keys(tamagotchiStages);
                 const currentIndex = stages.indexOf(tamagotchi.stage);
                 if (currentIndex < stages.length - 1) {
                     tamagotchi.stage = stages[currentIndex + 1];
-                    showTamagotchiMessage(`Evolved to ${tamagotchi.stage}! 🎉`);
+                    showTamagotchiMessage(`Aku tumbuh jadi ${tamagotchi.stage}! 🎉`);
                 }
             }
         }
@@ -1305,23 +1481,19 @@
         }
 
         function updateTamagotchiDisplay() {
-            // Update bars
             document.getElementById('hungerBar').style.width = tamagotchi.hunger + '%';
             document.getElementById('happinessBar').style.width = tamagotchi.happiness + '%';
             document.getElementById('energyBar').style.width = tamagotchi.energy + '%';
             document.getElementById('healthBar').style.width = tamagotchi.health + '%';
             
-            // Update stats
             document.getElementById('tamagotchiAge').textContent = tamagotchi.age.toFixed(1);
             document.getElementById('tamagotchiStage').textContent = tamagotchi.stage;
             document.getElementById('tamagotchiPoints').textContent = Math.floor(tamagotchi.points);
             
-            // Update pet appearance
             const pet = document.getElementById('tamagotchiPet');
             const stageData = tamagotchiStages[tamagotchi.stage];
             pet.textContent = stageData.emoji;
             
-            // Add effects based on status
             if (tamagotchi.isSick) {
                 pet.style.color = '#ff0000';
                 pet.style.transform = 'scale(0.9)';
@@ -1336,7 +1508,6 @@
                 pet.style.transform = 'scale(1)';
             }
             
-            // Update bar colors based on value
             updateBarColor('hungerBar', tamagotchi.hunger);
             updateBarColor('happinessBar', tamagotchi.happiness);
             updateBarColor('energyBar', tamagotchi.energy);
@@ -1346,11 +1517,11 @@
         function updateBarColor(barId, value) {
             const bar = document.getElementById(barId);
             if (value > 70) {
-                bar.style.background = '#0f0';
+                bar.style.background = '#f472b6';
             } else if (value > 30) {
-                bar.style.background = '#ff0';
+                bar.style.background = '#fbbf24';
             } else {
-                bar.style.background = '#f00';
+                bar.style.background = '#ef4444';
             }
         }
 
@@ -1362,16 +1533,229 @@
                     energy: 100,
                     health: 100,
                     age: 0,
-                    stage: 'EGG',
+                    stage: 'BAYI',
                     points: 0,
                     lastUpdate: Date.now(),
                     isSleeping: false,
                     isSick: false,
-                    evolutionPoints: 0
+                    clothes: 'default'
                 };
                 updateTamagotchiDisplay();
                 saveTamagotchi();
-                showTamagotchiMessage("New Tamagotchi created! 🐣");
+                showTamagotchiMessage("Tamagotchi baru lahir! 🌸");
+            }
+        }
+
+        // ========== VIRTUAL DOLL GAME ==========
+        function loadVirtualDoll() {
+            const saved = localStorage.getItem('virtualDollZah');
+            if (saved) {
+                try {
+                    const savedData = JSON.parse(saved);
+                    virtualDoll = savedData;
+                    // Update time together
+                    const minutesTogether = Math.floor((Date.now() - virtualDoll.startTime) / (1000 * 60));
+                    virtualDoll.startTime = Date.now() - (minutesTogether * 60 * 1000);
+                } catch(e) {
+                    console.log("Error loading virtual doll:", e);
+                }
+            }
+            updateDollDisplay();
+        }
+
+        function saveVirtualDoll() {
+            localStorage.setItem('virtualDollZah', JSON.stringify(virtualDoll));
+        }
+
+        function startDollTimer() {
+            clearInterval(dollInterval);
+            dollInterval = setInterval(updateDollStats, 5000);
+        }
+
+        function updateDollStats() {
+            // Love level decreases slowly over time
+            virtualDoll.loveLevel = Math.max(0, virtualDoll.loveLevel - 0.5);
+            
+            // Update time together
+            const minutesTogether = Math.floor((Date.now() - virtualDoll.startTime) / (1000 * 60));
+            
+            updateDollDisplay();
+            saveVirtualDoll();
+        }
+
+        function hugDoll() {
+            virtualDoll.hugCount++;
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 10);
+            virtualDoll.interactionCount++;
+            
+            const messages = [
+                "Aww, pelukan hangat! 🥰",
+                "Terima kasih sudah memelukku! 🤗",
+                "Pelukan terbaik hari ini! 💖",
+                "Kamu yang terbaik! 😍",
+                "Aku senang dipeluk! 🥹"
+            ];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            showDollMessage(randomMessage);
+            updateDollDisplay();
+            saveVirtualDoll();
+            
+            // Animation
+            const doll = document.getElementById('dollCharacter');
+            doll.style.transform = 'scale(1.2)';
+            setTimeout(() => {
+                doll.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        function playWithDoll() {
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 15);
+            virtualDoll.interactionCount++;
+            
+            showDollMessage("Yey, main bersama! 🎮");
+            updateDollDisplay();
+            saveVirtualDoll();
+            
+            // Animation
+            const doll = document.getElementById('dollCharacter');
+            doll.style.animation = 'bounce 0.5s';
+            setTimeout(() => {
+                doll.style.animation = '';
+            }, 500);
+        }
+
+        function feedDoll() {
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 8);
+            virtualDoll.interactionCount++;
+            
+            const foods = ['🍪', '🍩', '🍰', '🍓', '🍦'];
+            const randomFood = foods[Math.floor(Math.random() * foods.length)];
+            
+            showDollMessage(`Makan ${randomFood} enak banget!`);
+            updateDollDisplay();
+            saveVirtualDoll();
+        }
+
+        function singToDoll() {
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 12);
+            virtualDoll.interactionCount++;
+            virtualDoll.isSinging = true;
+            
+            const songs = ['🎵 Twinkle Twinkle', '🎶 Baby Shark', '🎤 Lagu Rohani', '🎼 Nada Indah'];
+            const randomSong = songs[Math.floor(Math.random() * songs.length)];
+            
+            showDollMessage(`${randomSong}... merdu banget!`);
+            updateDollDisplay();
+            saveVirtualDoll();
+            
+            setTimeout(() => {
+                virtualDoll.isSinging = false;
+            }, 3000);
+        }
+
+        function changeDollClothes() {
+            currentClothesIndex = (currentClothesIndex + 1) % dollClothes.length;
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 5);
+            virtualDoll.interactionCount++;
+            
+            const doll = document.getElementById('dollCharacter');
+            doll.textContent = dollClothes[currentClothesIndex];
+            
+            const clothesNames = ['Boneka Teddy', 'Boneka Beruang', 'Boneka Kelinci', 'Boneka Kucing', 'Boneka Rubah', 'Boneka Anjing', 'Boneka Koala'];
+            showDollMessage(`Aku sekarang ${clothesNames[currentClothesIndex]}! 🎀`);
+            updateDollDisplay();
+            saveVirtualDoll();
+        }
+
+        function danceWithDoll() {
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 20);
+            virtualDoll.interactionCount++;
+            virtualDoll.isDancing = true;
+            
+            showDollMessage("Ayo menari bersama! 💃🕺");
+            updateDollDisplay();
+            saveVirtualDoll();
+            
+            const doll = document.getElementById('dollCharacter');
+            doll.style.animation = 'spin 1s linear';
+            setTimeout(() => {
+                doll.style.animation = '';
+                virtualDoll.isDancing = false;
+            }, 1000);
+        }
+
+        function tellStoryToDoll() {
+            virtualDoll.loveLevel = Math.min(100, virtualDoll.loveLevel + 18);
+            virtualDoll.interactionCount++;
+            
+            const stories = ['📖 Cerita Putri', '🐉 Petualangan Naga', '🌟 Bintang Kejora', '🏰 Istana Ajaib'];
+            const randomStory = stories[Math.floor(Math.random() * stories.length)];
+            
+            showDollMessage(`${randomStory}... seru banget!`);
+            updateDollDisplay();
+            saveVirtualDoll();
+        }
+
+        function showDollMessage(message) {
+            const msgElement = document.getElementById('dollMessage');
+            msgElement.textContent = message;
+            msgElement.style.opacity = 1;
+            
+            setTimeout(() => {
+                msgElement.style.opacity = 0.8;
+            }, 3000);
+        }
+
+        function updateDollDisplay() {
+            document.getElementById('hugCount').textContent = virtualDoll.hugCount;
+            document.getElementById('loveLevel').textContent = Math.floor(virtualDoll.loveLevel) + '%';
+            
+            // Update mood based on love level
+            let moodIndex = 0;
+            if (virtualDoll.loveLevel > 80) moodIndex = 0;
+            else if (virtualDoll.loveLevel > 60) moodIndex = 1;
+            else if (virtualDoll.loveLevel > 40) moodIndex = 2;
+            else if (virtualDoll.loveLevel > 20) moodIndex = 3;
+            else moodIndex = 4;
+            
+            document.getElementById('dollMood').textContent = dollMoods[moodIndex];
+            document.getElementById('interactionCount').textContent = virtualDoll.interactionCount;
+            
+            const minutesTogether = Math.floor((Date.now() - virtualDoll.startTime) / (1000 * 60));
+            document.getElementById('timeTogether').textContent = minutesTogether;
+            
+            // Update doll appearance based on activity
+            const doll = document.getElementById('dollCharacter');
+            if (virtualDoll.isDancing) {
+                doll.style.color = '#ff00ff';
+                doll.style.transform = 'rotate(10deg)';
+            } else if (virtualDoll.isSinging) {
+                doll.style.color = '#00ffff';
+                doll.style.transform = 'scale(1.1)';
+            } else {
+                doll.style.color = '#ffffff';
+                doll.style.transform = 'scale(1)';
+            }
+        }
+
+        function resetDoll() {
+            if (confirm("Reset Boneka Virtual? Semua progress akan hilang!")) {
+                virtualDoll = {
+                    hugCount: 0,
+                    loveLevel: 100,
+                    mood: 'happy',
+                    clothes: 'default',
+                    interactionCount: 0,
+                    startTime: Date.now(),
+                    isDancing: false,
+                    isSinging: false
+                };
+                currentClothesIndex = 0;
+                document.getElementById('dollCharacter').textContent = dollClothes[0];
+                updateDollDisplay();
+                saveVirtualDoll();
+                showDollMessage("Boneka baru siap dipeluk! 🧸");
             }
         }
 
@@ -1382,6 +1766,8 @@
             getRandomTypeText();
             loadTamagotchi();
             startTamagotchiTimer();
+            loadVirtualDoll();
+            startDollTimer();
             
             // Set high score display
             const savedHighScore = localStorage.getItem('fishHighScore');
@@ -1397,6 +1783,20 @@
                     openGame();
                 }
             });
+            
+            // Add CSS animations
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes bounce {
+                    0%, 100% { transform: translateY(0); }
+                    50% { transform: translateY(-20px); }
+                }
+                @keyframes spin {
+                    0% { transform: rotate(0deg); }
+                    100% { transform: rotate(360deg); }
+                }
+            `;
+            document.head.appendChild(style);
         });
     </script>
 </body>
