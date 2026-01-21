@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laporan Tim SAR: Semoga Lu Suka Zah! 🎣</title>
+    <title>Sepenggal curhat: Semoga Lu Suka Zah! 🎣</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
         
         body { 
             background: #0f172a; color: #f8fafc; font-family: 'Quicksand', sans-serif;
-            margin: 0; padding: 0; overflow: hidden; height: 100vh;
+            margin: 0; padding: 0; 
+            /* PERBAIKAN: Biar bisa scroll kalau konten kepanjangan di HP */
+            overflow-x: hidden; 
+            min-height: 100vh;
         }
 
         #overlay {
@@ -20,13 +23,17 @@
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(20deg); } }
 
         .container { 
-            height: 100vh; display: flex; justify-content: center; align-items: center; 
+            /* PERBAIKAN: Pake min-height biar di HP nggak kepotong konten bawahnya */
+            min-height: 100vh; 
+            display: flex; justify-content: center; align-items: center; 
             padding: 20px; box-sizing: border-box; position: relative;
         }
 
         .section { 
             display: none; text-align: center; max-width: 650px; width: 100%;
             animation: slideIn 0.5s ease-out;
+            /* PERBAIKAN: Tambahin padding bawah biar tombol nggak nempel bgt di layar HP */
+            padding-bottom: 30px;
         }
         .section.active { display: block !important; }
 
@@ -35,11 +42,11 @@
             to { opacity: 1; transform: translateY(0); } 
         }
 
-        /* PERBAIKAN: Menggunakan contain agar foto tidak terpotong sama sekali */
         img { 
             width: 100%; 
             height: auto; 
-            max-height: 50vh; /* Agar foto tetap proporsional dan tidak memakan seluruh layar */
+            /* PERBAIKAN: Max height gua sesuaikan biar pas di layar HP */
+            max-height: 300px; 
             object-fit: contain; 
             border-radius: 25px; 
             border: 4px solid #38bdf8; 
@@ -50,33 +57,43 @@
             margin-right: auto;
         }
 
-        h2 { color: #38bdf8; font-size: 2.2em; margin-bottom: 20px; font-weight: 700; }
-        p { line-height: 1.8; font-size: 1.15em; color: #cbd5e1; margin-bottom: 20px; }
+        h2 { color: #38bdf8; font-size: 1.8em; margin-bottom: 20px; font-weight: 700; }
+        p { line-height: 1.6; font-size: 1.1em; color: #cbd5e1; margin-bottom: 20px; }
         
         .highlight { color: #f472b6; font-weight: 700; font-size: 1.2em; }
         
         .story-box {
-            background: rgba(30, 41, 59, 0.7); padding: 40px; border-radius: 30px;
+            background: rgba(30, 41, 59, 0.7); 
+            /* PERBAIKAN: Padding gua kecilin dikit biar gak terlalu sempit di HP */
+            padding: 25px; 
+            border-radius: 30px;
             border: 1px solid rgba(56, 189, 248, 0.3); backdrop-filter: blur(10px);
             text-align: left;
         }
 
         .btn-nav {
             background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-            color: white; padding: 20px 50px; border-radius: 100px;
+            color: white; padding: 15px 35px; border-radius: 100px;
             text-decoration: none; font-weight: 700; display: inline-block;
-            margin-top: 30px; font-size: 1.2em; transition: 0.4s;
+            margin-top: 20px; font-size: 1.1em; transition: 0.4s;
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); border: none; cursor: pointer;
         }
         .btn-nav:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.6); }
 
-        .lose-streak { color: #ef4444; font-weight: bold; }
-        .footer-note { font-style: italic; color: #64748b; margin-top: 30px; font-size: 0.9em; }
-        
         .code-msg { 
             background: #000; color: #0f0; padding: 15px; border-radius: 10px; 
             font-family: 'Courier New', monospace; font-size: 0.9em; margin-top: 15px;
             border: 1px solid #0f0;
+            /* PERBAIKAN: Biar teks kodingan gak lari-lari di layar kecil */
+            word-break: break-all;
+        }
+
+        /* PERBAIKAN: Media Query buat layar HP biar font gak kegedean */
+        @media (max-width: 480px) {
+            h2 { font-size: 1.5em; }
+            p { font-size: 1em; }
+            .btn-nav { padding: 12px 25px; font-size: 1em; }
+            .story-box { padding: 15px; }
         }
     </style>
 </head>
@@ -97,13 +114,13 @@
                 <p>Sekarang dia <b>GUGUR</b> dengan tidak estetik. Padahal dipake AFK berjam-jam nemenin lu mah dia aman aja Zah. Eh, tau-taunya malah cedera parah kecipratan air ujan dari jendela kamar gua pas lagi asik nungguin lu.</p>
                 <p class="highlight">"Masa iya gua mau nyalahin ujan? Ya kali gua mau marahin ujan wkwk! Tapi ya sudahlah, nemenin lu AFK mah laptop meledak sekalipun gua jabanin! 🗿"</p>
             </div>
-            <button class="btn-nav" onclick="nextSlide(2)">Lanjut Zah masih panjang.. ➔</button>
+            <button class="btn-nav" onclick="nextSlide(2)">Lanjut Zah.. ➔</button>
         </div>
 
         <div class="section" id="s2">
-            <h2>Ruby Gemstone vs Ruby KW 💎</h2>
+            <h2>Ruby Gemstone vs Ruby Programming 💎</h2>
             <p>Gua pikir lu hanyut di Tropical Grove sampe gua panik bikin script sepanjang ini gara-gara notif roblox gua mati apa hp gua yang udah minta ganti🗿. Padahal lu lagi ambisi cari <b>Lochness</b> ya?</p>
-            <p>Gua dapet <b>Ruby</b> sih, tapi ya Ruby KW wkwk bukan <b>Ruby Gemstone</b> yang lu cari. Maafin hoki gua yang setengah mateng ini Zah.</p>
+            <p>Gua dapet <b>Ruby</b> sih, tapi ya Ruby biasa wkwk bukan <b>Ruby Gemstone</b> yang lu cari. Maafin hoki gua yang setengah mateng ini Zah.</p>
             <p class="highlight">"Lu sibuk cari Lochness, gua sibuk bikin kodingan biar kerja makin mudah dan ada waktu buat mabar itu juga kalo lu mau🗿. Lu dapet ikan sc, gua cuma dapet lose streak ML! 🗿"</p>
             <button class="btn-nav" onclick="nextSlide(3)">lanjut lagi.. ➔</button>
         </div>
@@ -131,9 +148,8 @@
         <div class="section" id="s5">
             <h2>The Legendary 2016 🌸</h2>
             <img src="2016.jpg" alt="Zahyang 2016">
-            <p>Gua liat story ini... Gila Zah, zaman sekolah lu santai banget ya muka dan gaya fotonya. Wibu tercantik angkatan 2016 emang damage-nya permanen!</p>
             <p>Gua harap lu tetep bisa senyum kayak di foto ini, walaupun hidup sekarang udah nggak sesantai dulu.</p>
-            <button class="btn-nav" onclick="nextSlide(6)">lanjut masih ada lagi.. ➔</button>
+            <button class="btn-nav" onclick="nextSlide(6)">lanjut lagi.. ➔</button>
         </div>
 
         <div class="section" id="s6">
@@ -156,8 +172,8 @@
             <h2>Jimat Hoki Ares Rod 🎣</h2>
             <img src="Party.jpg" alt="Chat Party">
             <img src="Mabar.jpg" alt="Mabar Moment">
-            <p>Inget ga cgat ini pas lu rela kasih ikan mitos buat beli ares Rod kata lu astral bau haha?gua kira chat itu becanda taunya beneran,di ajarin di ajakin naik kapal liat momen foto ini pas mabar,tapi karna beda misi di tinggal dah wwkwkw, Sekarang Ares gua udah gacor, ngekos 2 hari di lost isle udah lulus misi ghostfin,terus hopeless lagi misi element, tapi yang jadi jimat hokinya malah ngilang cari Lochness wkwk.</p>
-            <button class="btn-nav" onclick="nextSlide(9)">Dikit lagi semangat.. ➔</button>
+            <p>Inget pas lu rela kasih ikan mitos demi Ares Rod gua? Sekarang Ares gua udah gacor, ngekos 2 hari di lost isle udah lulus misi ghostfin, tapi yang jadi jimat hokinya malah ngilang cari Lochness wkwk.</p>
+            <button class="btn-nav" onclick="nextSlide(9)">Dikit lagi.. ➔</button>
         </div>
 
         <div class="section" id="s9">
@@ -168,24 +184,24 @@
                 <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gua mah! 🗿</p>
                 <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gua nggak mau janji gua cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gua dulu."</p>
             </div>
-            <button class="btn-nav" onclick="nextSlide(10)">Penting Banget.. ➔</button>
+            <button class="btn-nav" onclick="nextSlide(10)">Penting Zah.. ➔</button>
         </div>
 
         <div class="section" id="s10">
             <h2>Protokol Kesehatan Anti-Ghosting ⛈️</h2>
             <div class="story-box" style="border-color: #10b981;">
                 <p>Zah, ujan sekarang lagi nggak ada akhlak. Lu liat sendiri kan, laptop saksi bisu skripsi gua aja sampe tewas cuma gara-gara kecipratan doang? Gua nggak mau lu juga ikut-ikutan <b>tumbang</b> gara-gara nekat nerjang ujan.</p>
-                <p>Tolong ya, jangan sok jagoan nerjang badai cuma demi beli seblak. Kalau lu sakit, yang pusing bukan cuma dokter, tapi gua juga bakal kena <b>mental</b> karena nggak ada lagi 'notifikasi' paling gua tunggu tiap hari.</p>
+                <p>Tolong ya, jangan sok jagoan nerjang badai cuma demi beli seblak. Kalau lu sakit, yang pusing bukan cuma dokter, tapi gua juga bakal kena <b>mental damage</b> karena nggak ada lagi 'notifikasi' paling gua tunggu tiap hari.</p>
                 <p class="highlight">"Cukup laptop gua aja yang almarhum (semoga cuma mati suri sih), lu-nya jangan sampe drop! Kalau ngerasa sedih, lagi mendung hatinya, atau butuh sandaran, cerita aja ke gua. Gua emang bukan ikan sc Lochness yang lu cari, tapi gua adalah 'Abang-abangan 24 Jam' yang siap dengerin curhatan lu sampe lu senyum lagi wkwk! 🗿"</p>
                 <p>Inget ya Queen: <b>Minum vitamin, pake jaket, dan jangan lupa kabarin gua.</b> Biar gua tau kalau 'Jimat Hoki' gua ini tetep sehat walafiat buat mabar nanti!</p>
             </div>
-            <button class="btn-nav" onclick="nextSlide(11)">selesai sehat selalu Nur Hazizah.. ➔</button>
+            <button class="btn-nav" onclick="nextSlide(11)">Selesai Nur Hazizah.. ➔</button>
         </div>
 
         <div class="section" id="s11">
             <h2>Hutang Lunas, Mabar Gas! ✅</h2>
             <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gua abang-abangan lu yang siap 24 jam buat dengerin lu.</p>
-            <p class="highlight">Gua tunggu di private server. Jangan kelamaan keburu ganti lagi rodnya wwkwk, nanti ava Talon Kikir gua hanyut beneran nyariin lu!</p>
+            <p class="highlight">Gua tunggu di private server. Jangan kelamaan ngilang, nanti Talon Kikir gua hanyut beneran nyariin lu!</p>
             
             <div class="code-msg">
                 ("Zah, balesnya pake kodingan juga ya zah 🗿");<br>
@@ -202,6 +218,8 @@
 
         function startApp() {
             document.getElementById('overlay').style.display = 'none';
+            // Biar scroll body aktif lagi setelah overlay ilang
+            document.body.style.overflow = "auto";
             try { document.getElementById('myAudio').play(); } catch(e) {}
             createDecor();
         }
@@ -212,6 +230,8 @@
             if(next) {
                 next.classList.add('active');
                 currentSlide = n;
+                // Setiap pindah slide, otomatis scroll ke paling atas biar gak bingung di HP
+                window.scrollTo(0,0);
             }
         }
 
