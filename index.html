@@ -8,192 +8,203 @@
         
         body { 
             background: #0f172a; color: #f8fafc; font-family: 'Quicksand', sans-serif;
-            margin: 0; padding: 0; overflow-x: hidden; scroll-behavior: smooth;
+            margin: 0; padding: 0; overflow: hidden; height: 100vh;
         }
 
-        /* Overlay Start buat Musik karena kebijakan browser */
         #overlay {
             position: fixed; width: 100%; height: 100%; background: #0f172a;
             display: flex; justify-content: center; align-items: center; z-index: 999;
         }
 
-        .progress-container { position: fixed; top: 0; z-index: 100; width: 100%; height: 5px; background: #1e293b; }
-        .progress-bar { height: 5px; background: #38bdf8; width: 0%; }
-
         .decor { position: fixed; font-size: 25px; opacity: 0.3; animation: float 6s infinite ease-in-out; z-index: -1; }
         @keyframes float { 0%, 100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(20deg); } }
 
-        .container { max-width: 650px; margin: auto; padding: 100px 20px; }
-
-        .section { 
-            margin-bottom: 250px; opacity: 0; transform: translateY(80px);
-            transition: all 1.2s ease-out; text-align: center;
+        .container { 
+            height: 100vh; display: flex; justify-content: center; align-items: center; 
+            padding: 20px; box-sizing: border-box; position: relative;
         }
 
-        .section.show { opacity: 1; transform: translateY(0); }
+        .section { 
+            display: none; text-align: center; max-width: 650px; width: 100%;
+            animation: slideIn 0.5s ease-out;
+        }
+        .section.active { display: block !important; }
+
+        @keyframes slideIn { 
+            from { opacity: 0; transform: translateY(30px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
 
         img { 
-            width: 100%; border-radius: 25px; border: 4px solid #38bdf8;
-            box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15); margin-bottom: 30px;
+            width: 100%; max-height: 250px; object-fit: cover; border-radius: 25px; 
+            border: 4px solid #38bdf8; box-shadow: 0 20px 50px rgba(56, 189, 248, 0.15); 
+            margin-bottom: 20px;
         }
 
         h2 { color: #38bdf8; font-size: 2.2em; margin-bottom: 20px; font-weight: 700; }
-        p { line-height: 2; font-size: 1.15em; color: #cbd5e1; margin-bottom: 20px; }
+        p { line-height: 1.8; font-size: 1.15em; color: #cbd5e1; margin-bottom: 20px; }
         
         .highlight { color: #f472b6; font-weight: 700; font-size: 1.2em; }
         
         .story-box {
             background: rgba(30, 41, 59, 0.7); padding: 40px; border-radius: 30px;
             border: 1px solid rgba(56, 189, 248, 0.3); backdrop-filter: blur(10px);
-            text-align: left; position: relative;
-            transition: transform 0.3s ease;
-        }
-        .story-box:hover {
-            transform: scale(1.02);
-            background: rgba(30, 41, 59, 0.9);
+            text-align: left;
         }
 
-        .btn {
+        .btn-nav {
             background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
             color: white; padding: 20px 50px; border-radius: 100px;
             text-decoration: none; font-weight: 700; display: inline-block;
             margin-top: 30px; font-size: 1.2em; transition: 0.4s;
             box-shadow: 0 10px 30px rgba(56, 189, 248, 0.4); border: none; cursor: pointer;
         }
-        .btn:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.6); }
+        .btn-nav:hover { transform: translateY(-5px); box-shadow: 0 15px 40px rgba(56, 189, 248, 0.6); }
 
-        .footer-note { font-style: italic; color: #64748b; margin-top: 50px; font-size: 0.9em; }
         .lose-streak { color: #ef4444; font-weight: bold; }
+        .footer-note { font-style: italic; color: #64748b; margin-top: 30px; font-size: 0.9em; }
+        
+        .code-msg { 
+            background: #000; color: #0f0; padding: 15px; border-radius: 10px; 
+            font-family: 'Courier New', monospace; font-size: 0.9em; margin-top: 15px;
+            border: 1px solid #0f0;
+        }
     </style>
 </head>
 <body>
 
     <div id="overlay">
-        <button onclick="startApp()" class="btn">KLIK DULU, QUEEN! 👑</button>
+        <button onclick="startApp()" class="btn-nav">KLIK DULU, QUEEN! 👑</button>
     </div>
 
-    <audio id="myAudio" loop>
-        <source src="musik.mp3" type="audio/mpeg">
-    </audio>
-
-    <div class="progress-container"><div class="progress-bar" id="myBar"></div></div>
+    <audio id="myAudio" loop><source src="musik.mp3" type="audio/mpeg"></audio>
 
     <div class="container">
         
-        <div class="section">
+        <div class="section active" id="s1">
             <h2>Laporan Tim SAR: Korban Ujan 🌧️</h2>
             <div class="story-box">
-                <p>Zah, lu tau nggak? Gue beneran lagi <b>hopeless</b> liat laptop gue. Laptop saksi bisu gue skripsian sampe lulus, revisi dosen, sampe mabar bareng lu...</p>
-                <p>Sekarang dia <b>GUGUR</b> dengan tidak estetik. Padahal dipake AFK berjam-jam nemenin lu mah dia aman aja Zah. Eh, tau-taunya malah cedera parah kecipratan air ujan dari jendela kamar gue pas lagi asik nungguin lu.</p>
-                <p class="highlight">"Masa iya gue mau nyalahin ujan? Ya kali gue mau somasi langit demi lu wkwk! Tapi ya sudahlah, nemenin lu AFK mah laptop meledak sekalipun gue jabanin! 🗿"</p>
+                <p>Zah, lu tau nggak? Gua beneran lagi <b>hopeless</b> liat laptop gua. Laptop saksi bisu gua skripsian sampe lulus, revisi dosen, sampe mabar bareng lu...</p>
+                <p>Sekarang dia <b>GUGUR</b> dengan tidak estetik. Padahal dipake AFK berjam-jam nemenin lu mah dia aman aja Zah. Eh, tau-taunya malah cedera parah kecipratan air ujan dari jendela kamar gua pas lagi asik nungguin lu.</p>
+                <p class="highlight">"Masa iya gua mau nyalahin ujan? Ya kali gua mau marahin ujan wkwk! Tapi ya sudahlah, nemenin lu AFK mah laptop meledak sekalipun gua jabanin! 🗿"</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(2)">Lanjut Zah masih panjang.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s2">
             <h2>Ruby Gemstone vs Ruby Programming 💎</h2>
-            <p>Gue pikir lu hanyut di Tropical Grove sampe gue panik bikin script sepanjang ini gara-gara notif roblox gue mati apa hp gua yang udah minta ganti🗿. Padahal lu lagi ambisi cari <b>Lochness</b> ya?</p>
-            <p>Gue dapet <b>Ruby</b> sih, tapi ya Ruby biasa wkwk bukan <b>Ruby Gemstone</b> yang lu cari. Maafin hoki gue yang setengah mateng ini Zah.</p>
-            <p class="highlight">"Lu sibuk cari Lochness, gue sibuk bikin kodingan biar kerja makin mudah dan ada waktu buat mabar itu juga kalo lu mau🗿. Lu dapet ikan sc, gue cuma dapet lose streak ML! 🗿"</p>
+            <p>Gua pikir lu hanyut di Tropical Grove sampe gua panik bikin script sepanjang ini gara-gara notif roblox gua mati apa hp gua yang udah minta ganti🗿. Padahal lu lagi ambisi cari <b>Lochness</b> ya?</p>
+            <p>Gua dapet <b>Ruby</b> sih, tapi ya Ruby biasa wkwk bukan <b>Ruby Gemstone</b> yang lu cari. Maafin hoki gua yang setengah mateng ini Zah.</p>
+            <p class="highlight">"Lu sibuk cari Lochness, gua sibuk bikin kodingan biar kerja makin mudah dan ada waktu buat mabar itu juga kalo lu mau🗿. Lu dapet ikan sc, gua cuma dapet lose streak ML! 🗿"</p>
+            <button class="btn-nav" onclick="nextSlide(3)">lanjut lagi.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s3">
             <div class="story-box" style="border-color: #818cf8;">
                 <h2>Ratu Notif & Pangeran Sabar 👑</h2>
-                <p>Gue bales pake script mulu ke lu di DM IG, apalagi kalo di WA lu Ratu kali Zah nomor gue juga pasti lu apal karna script gue selalu kasih nomor.</p>
-                <p>Tapi emang agak susah ya dapetin notif WA dari lu, tapi gue ga hopeless kaya lu Zah wkwkw. Nyindir dikit nggak apa-apa lah ya, nyindir tapi sebenernya beneran tulus!</p>
-                <p class="highlight">"HP gue emang udah minta pensiun dengan cara halus gara-gara notif ga masuk bajingan, tapi gue nggak bakal pernah pensiun buat nungguin lu! 🗿"</p>
+                <p>Gua bales pake script mulu ke lu di DM IG, apalagi kalo di WA lu Ratu kali Zah nomor gua juga pasti lu apal karna script gua selalu kasih nomor.</p>
+                <p>Tapi emang agak susah ya dapetin notif WA dari lu, tapi gua ga hopeless kaya lu Zah wkwkw. Nyindir dikit nggak apa-apa lah ya, nyindir tapi sebenernya beneran tulus!</p>
+                <p class="highlight">"HP gua emang udah minta pensiun dengan cara halus gara-gara notif ga masuk bajingan, tapi gua nggak bakal pernah pensiun buat nungguin lu! 🗿"</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(4)">Lanjut terus.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s4">
             <h2>Majikan Tragis, Kucing pun Teler 🐈‍⬛</h2>
             <img src="kucing.jpg" alt="Kucing Teler">
             <div class="story-box" style="border-color: #fcd34d;">
-                <p>Zah, lu liat kucing gue ini... Dia aja sampe teler dan pasrah liat majikannya seharian begadang cuma buat benerin script dan nungguin notif dari lu. 🗿</p>
-                <p class="highlight">"Saking panjang dan penuh dramanya kodingan ini, kucing gue pun ikut 'hopeless' liat perjuangan gue. Maaf ya Zah, semoga lu nggak ketiduran juga pas baca ini kayak kucing gue wkwk!"</p>
+                <p>Zah, lu liat kucing gua ini... Dia aja sampe teler dan pasrah liat majikannya seharian begadang cuma buat benerin script dan nungguin notif dari lu. 🗿</p>
+                <p class="highlight">"Saking panjang dan penuh dramanya kodingan ini, kucing gua pun ikut 'hopeless' liat perjuangan gua. Maaf ya Zah, semoga lu nggak ketiduran juga pas baca ini kayak kucing gua wkwk!"</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(5)">The Legend.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s5">
             <h2>The Legendary 2016 🌸</h2>
             <img src="2016.jpg" alt="Zahyang 2016">
-            <p>Gue liat story ini... Gila Zah, zaman sekolah lu santai banget ya muka dan gaya fotonya. Wibu tercantik angkatan 2016 emang damage-nya permanen!</p>
-            <p>Gue harap lu tetep bisa senyum kayak di foto ini, walaupun hidup sekarang udah nggak sesantai dulu.</p>
+            <p>Gua liat story ini... Gila Zah, zaman sekolah lu santai banget ya muka dan gaya fotonya. Wibu tercantik angkatan 2016 emang damage-nya permanen!</p>
+            <p>Gua harap lu tetep bisa senyum kayak di foto ini, walaupun hidup sekarang udah nggak sesantai dulu.</p>
+            <button class="btn-nav" onclick="nextSlide(6)">lanjut masih ada lagi.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s6">
             <h2>Track Record Awal 💬</h2>
             <img src="Dm.jpg" alt="DM IG Kenangan">
-            <p>Inget nggak awal kita asik di DM? Gue simpen semua lho. Gue nggak mau kenangan ini 'hanyut' kayak laptop skripsi gue wkwk. Lu itu notifikasi favorit gue tiap hari Zah.</p>
+            <p>Inget nggak awal kita asik di DM? Gua simpen semua lho. Gua nggak mau kenangan ini 'hanyut' kayak laptop skripsi gua wkwk. Lu itu notifikasi favorit gua tiap hari Zah.</p>
+            <button class="btn-nav" onclick="nextSlide(7)">Nasib Akai.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s7">
             <div class="story-box" style="border-color: #ef4444;">
                 <h2>Nasib Akai di Tangan Legend ⚔️</h2>
-                <p>Gue bela-belain login ML lagi demi bisa nyusul pangkat lu yang udah <b>Legend</b> cepet bener. Tapi gue yang masih <b>GM IV</b> ini malah jadi bulan-alan di Land of Dawn.</p>
-                <p class="lose-streak">"Dapet Gold MVP sih sering, tapi LOSE STREAK-nya lebih sering lagi! Kalah terus karena nggak ada lu yang nemenin gue tabrak-tabrak musuh. Emosi gue udah ngalahin beban hidup! 🗿"</p>
+                <p>Gua bela-belain login ML lagi demi bisa nyusul pangkat lu yang udah <b>Legend</b> cepet bener. Tapi gua yang masih <b>GM IV</b> ini malah jadi bulan-alan di Land of Dawn.</p>
+                <p class="lose-streak">"Dapet Gold MVP sih sering, tapi LOSE STREAK-nya lebih sering lagi! Kalah terus karena nggak ada lu yang nemenin gua tabrak-tabrak musuh. Emosi gua udah ngalahin beban hidup! 🗿"</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(8)">Jimat Hoki.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s8">
             <h2>Jimat Hoki Ares Rod 🎣</h2>
             <img src="Party.jpg" alt="Chat Party">
             <img src="Mabar.jpg" alt="Mabar Moment">
-            <p>Inget pas lu rela kasih ikan mitos demi Ares Rod gue? Sekarang Ares gue udah gacor, ngekos 2 hari di lost isle udah lulus misi ghostfin,tapi yang jadi jimat hokinya malah ngilang cari Lochness wkwk.</p>
+            <p>Inget pas lu rela kasih ikan mitos demi Ares Rod gua? Sekarang Ares gua udah gacor, ngekos 2 hari di lost isle udah lulus misi ghostfin, tapi yang jadi jimat hokinya malah ngilang cari Lochness wkwk.</p>
+            <button class="btn-nav" onclick="nextSlide(9)">Dikit lagi semangat.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s9">
             <div class="story-box">
                 <h2>Misi Penebusan Janji dari hati gua yang paling dalam 🎁</h2>
-                <p>Gue sadar, gue udah banyak janji ke lu tapi eksekusinya agak 'becanda'. Inget script ultah kemarin? Kuenya cuma <b>GIF</b> doang. Terus janji boneka, eh malah lu-nya nggak suka atau belum siap nerima barang dari gua?</p>
-                <p class="highlight">"Bukannya gue boros ya Zah, tapi ada rezeki aja dari project kodingan gue kemarin. Jadi gue kepikiran buat kasih lu <b>Skin Rod Black Hole</b> atau <b>Bunga Abadi</b>-nya biar kita <b>SAMAAN</b> pas mancing nanti!"</p>
-                <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gue mah! 🗿</p>
-                <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gue nggak mau janji gue cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gue dulu."</p>
+                <p>Gua sadar, gua udah banyak janji ke lu tapi eksekusinya agak 'becanda'. Inget script ultah kemarin? Kuenya cuma <b>GIF</b> doang. Terus janji boneka, eh malah lu-nya nggak suka atau belum siap nerima barang dari gua?</p>
+                <p class="highlight">"Bukannya gua boros ya Zah, tapi ada rezeki aja dari project kodingan gua kemarin. Jadi gua kepikiran buat kasih lu <b>Skin Rod Black Hole</b> atau <b>Bunga Abadi</b>-nya biar kita <b>SAMAAN</b> pas mancing nanti!"</p>
+                <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gua mah! 🗿</p>
+                <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gua nggak mau janji gua cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gua dulu."</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(10)">Penting Banget.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s10">
             <h2>Protokol Kesehatan Anti-Ghosting ⛈️</h2>
             <div class="story-box" style="border-color: #10b981;">
-                <p>Zah, ujan sekarang lagi nggak ada akhlak. Lu liat sendiri kan, laptop saksi bisu skripsi gue aja sampe tewas cuma gara-gara kecipratan doang? Gue nggak mau lu juga ikut-ikutan <b>tumbang</b> gara-gara nekat nerjang ujan.</p>
-                <p>Tolong ya, jangan sok jagoan nerjang badai cuma demi beli seblak. Kalau lu sakit, yang pusing bukan cuma dokter, tapi gue juga bakal kena <b>mental damage</b> karena nggak ada lagi 'notifikasi' paling gue tunggu tiap hari.</p>
-                <p class="highlight">"Cukup laptop gue aja yang almarhum (semoga cuma mati suri sih), lu-nya jangan sampe drop! Kalau ngerasa sedih, lagi mendung hatinya, atau butuh sandaran, cerita aja ke gue. Gue emang bukan ikan sc Lochness yang lu cari, tapi gue adalah 'Abang-abangan 24 Jam' yang siap dengerin curhatan lu sampe lu senyum lagi wkwk! 🗿"</p>
-                <p>Inget ya Queen: <b>Minum vitamin, pake jaket, dan jangan lupa kabarin gue.</b> Biar gue tau kalau 'Jimat Hoki' gue ini tetep sehat walafiat buat mabar nanti!</p>
+                <p>Zah, ujan sekarang lagi nggak ada akhlak. Lu liat sendiri kan, laptop saksi bisu skripsi gua aja sampe tewas cuma gara-gara kecipratan doang? Gua nggak mau lu juga ikut-ikutan <b>tumbang</b> gara-gara nekat nerjang ujan.</p>
+                <p>Tolong ya, jangan sok jagoan nerjang badai cuma demi beli seblak. Kalau lu sakit, yang pusing bukan cuma dokter, tapi gua juga bakal kena <b>mental damage</b> karena nggak ada lagi 'notifikasi' paling gua tunggu tiap hari.</p>
+                <p class="highlight">"Cukup laptop gua aja yang almarhum (semoga cuma mati suri sih), lu-nya jangan sampe drop! Kalau ngerasa sedih, lagi mendung hatinya, atau butuh sandaran, cerita aja ke gua. Gua emang bukan ikan sc Lochness yang lu cari, tapi gua adalah 'Abang-abangan 24 Jam' yang siap dengerin curhatan lu sampe lu senyum lagi wkwk! 🗿"</p>
+                <p>Inget ya Queen: <b>Minum vitamin, pake jaket, dan jangan lupa kabarin gua.</b> Biar gua tau kalau 'Jimat Hoki' gua ini tetep sehat walafiat buat mabar nanti!</p>
             </div>
+            <button class="btn-nav" onclick="nextSlide(11)">selesai sehat selalu Nur Hazizah.. ➔</button>
         </div>
 
-        <div class="section">
+        <div class="section" id="s11">
             <h2>Hutang Lunas, Mabar Gas! ✅</h2>
-            <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gue abang-abangan lu yang siap 24 jam buat dengerin lu (walaupun laptop udah almarhum semoga cuma mati suri aja sih mager bongkarnya :v).</p>
-            <p class="highlight">Gue tunggu di private server. Jangan kelamaan ngilang, nanti Talon Kikir gue hanyut beneran nyariin lu!</p>
-            <button onclick="startMabar()" class="btn">KLAIM HADIAH & SAMAAN SAMA GUE! 🎣</button>
+            <p>Zah, ikutin aja kemauan lu, nikmatin hidup. Masalah jangan disimpen sendiri, ada gua abang-abangan lu yang siap 24 jam buat dengerin lu.</p>
+            <p class="highlight">Gua tunggu di private server. Jangan kelamaan ngilang, nanti Talon Kikir gua hanyut beneran nyariin lu!</p>
+            
+            <div class="code-msg">
+                ("Zah, balesnya pake kodingan juga ya zah 🗿");<br>
+            </div>
+
+            <button onclick="startMabar()" class="btn-nav">KLAIM HADIAH & SAMAAN SAMA GUA! 🎣</button>
             <div class="footer-note">Repository: semoga-lu-suka <br> — TTD, Abang-abangan 24 Jam Lu wkwk.</div>
         </div>
 
     </div>
 
     <script>
-        // Start App: Hilangkan Overlay & Putar Musik
+        let currentSlide = 1;
+
         function startApp() {
             document.getElementById('overlay').style.display = 'none';
-            var audio = document.getElementById('myAudio');
-            audio.play();
+            try { document.getElementById('myAudio').play(); } catch(e) {}
             createDecor();
         }
 
-        window.onscroll = function() {
-          var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-          var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-          var scrolled = (winScroll / height) * 100;
-          document.getElementById("myBar").style.width = scrolled + "%";
-        };
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) { entry.target.classList.add('show'); }
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.section').forEach((el) => observer.observe(el));
+        function nextSlide(n) {
+            document.getElementById('s' + currentSlide).classList.remove('active');
+            const next = document.getElementById('s' + n);
+            if(next) {
+                next.classList.add('active');
+                currentSlide = n;
+            }
+        }
 
         function createDecor() {
             const icons = ['🌸', '🎣', '🐟', '✨', '🦈'];
@@ -209,16 +220,8 @@
         }
 
         function startMabar() {
-            alert(
-                "Misi Penebusan Janji Selesai! ✅\n\n" +
-                "Status: Queen Ditemukan.\n" +
-                "Catatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha"
-            );
-            const linkVIP = "https://www.roblox.com/share?code=5f0c7ea4794f3c40b0eb1791accb0685&type=Server";
-            window.location.href = linkVIP;
-            setTimeout(function () {
-                window.open(linkVIP, '_blank');
-            }, 2000);
+            alert("Misi Penebusan Janji Selesai! ✅\nStatus: Queen Ditemukan.");
+            window.location.href = "https://www.roblox.com/share?code=5f0c7ea4794f3c40b0eb1791accb0685&type=Server";
         }
     </script>
 </body>
