@@ -46,6 +46,11 @@
             background: rgba(30, 41, 59, 0.7); padding: 40px; border-radius: 30px;
             border: 1px solid rgba(56, 189, 248, 0.3); backdrop-filter: blur(10px);
             text-align: left; position: relative;
+            transition: transform 0.3s ease;
+        }
+        .story-box:hover {
+            transform: scale(1.02);
+            background: rgba(30, 41, 59, 0.9);
         }
 
         .btn {
@@ -125,7 +130,7 @@
         <div class="section">
             <div class="story-box" style="border-color: #ef4444;">
                 <h2>Nasib Akai di Tangan Legend ⚔️</h2>
-                <p>Gue bela-belain login ML lagi demi bisa nyusul pangkat lu yang udah <b>Legend</b> cepet bener. Tapi gue yang masih <b>GM IV</b> ini malah jadi bulan-bulanan di Land of Dawn.</p>
+                <p>Gue bela-belain login ML lagi demi bisa nyusul pangkat lu yang udah <b>Legend</b> cepet bener. Tapi gue yang masih <b>GM IV</b> ini malah jadi bulan-alan di Land of Dawn.</p>
                 <p class="lose-streak">"Dapet Gold MVP sih sering, tapi LOSE STREAK-nya lebih sering lagi! Kalah terus karena nggak ada lu yang nemenin gue tabrak-tabrak musuh. Emosi gue udah ngalahin beban hidup! 🗿"</p>
             </div>
         </div>
@@ -144,6 +149,16 @@
                 <p class="highlight">"Bukannya gue boros ya Zah, tapi ada rezeki aja dari project kodingan gue kemarin. Jadi gue kepikiran buat kasih lu <b>Skin Rod Black Hole</b> atau <b>Bunga Abadi</b>-nya biar kita <b>SAMAAN</b> pas mancing nanti!"</p>
                 <p>Lu kalo mau bikin kodingan biar kerja lu makin mudah biar bisa mabar gua jabanin Zah! Apa sih yang enggak buat Queen gue mah! 🗿</p>
                 <p class="highlight">"Maafin abang-abangan lu yang rada kurang peka ini Zah. Gue nggak mau janji gue cuma jadi 'revisi' yang nggak kelar-kelar kayak skripsi gue dulu."</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Protokol Kesehatan Anti-Ghosting ⛈️</h2>
+            <div class="story-box" style="border-color: #10b981;">
+                <p>Zah, ujan sekarang lagi nggak ada akhlak. Lu liat sendiri kan, laptop saksi bisu skripsi gue aja sampe tewas cuma gara-gara kecipratan doang? Gue nggak mau lu juga ikut-ikutan <b>tumbang</b> gara-gara nekat nerjang ujan.</p>
+                <p>Tolong ya, jangan sok jagoan nerjang badai cuma demi beli seblak. Kalau lu sakit, yang pusing bukan cuma dokter, tapi gue juga bakal kena <b>mental damage</b> karena nggak ada lagi 'notifikasi' paling gue tunggu tiap hari.</p>
+                <p class="highlight">"Cukup laptop gue aja yang almarhum (semoga cuma mati suri sih), lu-nya jangan sampe drop! Kalau ngerasa sedih, lagi mendung hatinya, atau butuh sandaran, cerita aja ke gue. Gue emang bukan ikan sc Lochness yang lu cari, tapi gue adalah 'Abang-abangan 24 Jam' yang siap dengerin curhatan lu sampe lu senyum lagi wkwk! 🗿"</p>
+                <p>Inget ya Queen: <b>Minum vitamin, pake jaket, dan jangan lupa kabarin gue.</b> Biar gue tau kalau 'Jimat Hoki' gue ini tetep sehat walafiat buat mabar nanti!</p>
             </div>
         </div>
 
@@ -193,26 +208,18 @@
             }
         }
 
-    function startMabar() {
-    alert(
-        "Misi Penebusan Janji Selesai! ✅\n\n" +
-        "Status: Queen Ditemukan.\n" +
-        "Catatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha"
-    );
-
-    // Link VIP Server Lu (Ganti URL ini dengan Link VIP yang lu dapet dari web Roblox)
-    const linkVIP = "https://www.roblox.com/share?code=5f0c7ea4794f3c40b0eb1791accb0685&type=Server";
-
-    // Coba buka lewat protokol aplikasi dulu (buat User HP/PC yang ada App-nya)
-    // Kita pake try-catch tipis-tipis atau langsung lempar ke URL
-    window.location.href = linkVIP;
-
-    // Jika dalam 2 detik gak pindah, kita paksa buka di tab baru sebagai backup
-    setTimeout(function () {
-        window.open(linkVIP, '_blank');
-    }, 2000);
-}
-
+        function startMabar() {
+            alert(
+                "Misi Penebusan Janji Selesai! ✅\n\n" +
+                "Status: Queen Ditemukan.\n" +
+                "Catatan: Pilih Skin-nya di server ya Zah. Jangan lupa ketawa hahaha"
+            );
+            const linkVIP = "https://www.roblox.com/share?code=5f0c7ea4794f3c40b0eb1791accb0685&type=Server";
+            window.location.href = linkVIP;
+            setTimeout(function () {
+                window.open(linkVIP, '_blank');
+            }, 2000);
+        }
     </script>
 </body>
 </html>
